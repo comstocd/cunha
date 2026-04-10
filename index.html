@@ -10,17 +10,17 @@
     --navy: #0a0f1e;
     --navy-mid: #111827;
     --navy-light: #1c2a44;
-    --gold: #c9993a;
-    --gold-light: #e8b84b;
-    --gold-pale: #f5d98a;
+    --gold: #d4a640;
+    --gold-light: #f2c950;
+    --gold-pale: #f8e4a0;
     --cream: #f0ead6;
-    --slate: #8fa3b8;
-    --slate-light: #b8cdd8;
+    --slate: #b2c8da;
+    --slate-light: #cddde8;
     --red-accent: #c0392b;
     --green-accent: #2ecc71;
     --teal: #1abc9c;
     --white: #ffffff;
-    --text-body: #cdd5e0;
+    --text-body: #dce4ef;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -239,7 +239,7 @@
     align-items: center;
     justify-content: center;
     font-size: 10px;
-    color: rgba(201,153,58,0.5);
+    color: var(--gold);
   }
 
   /* ── STEP SLIDES shared layout ── */
@@ -284,9 +284,9 @@
   }
   .step-label {
     font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.22em;
-    color: var(--gold);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    color: var(--gold-light);
     text-transform: uppercase;
     margin-bottom: 14px;
     position: relative;
@@ -304,8 +304,8 @@
   }
   .step-action-tag {
     font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    color: var(--slate);
+    font-size: 11.5px;
+    color: var(--slate-light);
     line-height: 1.6;
     position: relative;
     z-index: 1;
@@ -373,15 +373,15 @@
   }
   .card-title {
     font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.15em;
-    color: var(--gold);
+    font-size: 11px;
+    letter-spacing: 0.13em;
+    color: var(--gold-light);
     text-transform: uppercase;
     margin-bottom: 10px;
   }
   .card-body {
     font-size: 13px;
-    line-height: 1.65;
+    line-height: 1.68;
     color: var(--text-body);
   }
   .card-body li {
@@ -413,29 +413,30 @@
   .inline-table th {
     text-align: left;
     font-family: 'DM Mono', monospace;
-    font-size: 9px;
-    letter-spacing: 0.12em;
-    color: var(--gold);
+    font-size: 10.5px;
+    letter-spacing: 0.1em;
+    color: var(--gold-light);
     text-transform: uppercase;
-    padding: 6px 10px;
-    border-bottom: 1px solid rgba(201,153,58,0.2);
+    padding: 7px 10px;
+    border-bottom: 1px solid rgba(212,166,64,0.35);
   }
   .inline-table td {
-    padding: 6px 10px;
-    border-bottom: 1px solid rgba(255,255,255,0.04);
-    line-height: 1.4;
+    padding: 7px 10px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    line-height: 1.5;
+    font-size: 12.5px;
     vertical-align: top;
   }
   .inline-table tr:last-child td { border-bottom: none; }
   .inline-table tr:hover td { background: rgba(201,153,58,0.03); }
 
   .pearl-box {
-    background: rgba(201,153,58,0.06);
-    border: 1px solid rgba(201,153,58,0.25);
+    background: rgba(212,166,64,0.07);
+    border: 1px solid rgba(212,166,64,0.32);
     border-radius: 2px;
     padding: 14px 18px;
     font-size: 13px;
-    line-height: 1.6;
+    line-height: 1.62;
     color: var(--cream);
     margin-top: 14px;
     grid-column: 1 / -1;
@@ -532,18 +533,18 @@
     margin-bottom: 8px;
   }
   .sc-action {
-    font-size: 11px;
-    color: var(--slate);
-    line-height: 1.5;
+    font-size: 12px;
+    color: var(--slate-light);
+    line-height: 1.55;
     flex: 1;
   }
   .summary-note {
     margin-top: 20px;
     text-align: center;
     font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    color: var(--slate);
-    letter-spacing: 0.08em;
+    font-size: 10.5px;
+    color: var(--slate-light);
+    letter-spacing: 0.07em;
   }
   .summary-card.step-6 {
     border-top-color: var(--teal);
@@ -557,7 +558,7 @@
   }
 
   /* Color variants for step labels */
-  .s1 .step-label, .s1 .card-title { color: #e8b84b; }
+  .s1 .step-label, .s1 .card-title { color: #f2c950; }
   .s1 .step-number-large { color: rgba(232,184,75,0.08); }
   .s2 .step-label, .s2 .card-title { color: #5dade2; }
   .s2 .step-number-large { color: rgba(93,173,226,0.08); }
@@ -591,6 +592,609 @@
   .tag.green { background: rgba(85,239,196,0.1); border-color: rgba(85,239,196,0.3); color: #55efc4; }
   .tag.red { background: rgba(192,57,43,0.1); border-color: rgba(192,57,43,0.3); color: #e74c3c; }
   .tag.pink { background: rgba(253,121,168,0.1); border-color: rgba(253,121,168,0.3); color: #fd79a8; }
+
+  /* ── Case Slides ── */
+  .case-slide {
+    height: calc(100vh - 56px);
+    display: flex;
+    flex-direction: column;
+    background: var(--navy);
+    overflow: hidden;
+  }
+  .case-header {
+    padding: 13px 36px;
+    border-bottom: 1px solid rgba(201,153,58,0.15);
+    background: var(--navy-mid);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-shrink: 0;
+  }
+  .case-header-left { display: flex; align-items: center; gap: 16px; }
+  .case-syndrome-icon { font-size: 22px; }
+  .case-syndrome-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--cream);
+  }
+  .case-syndrome-sub {
+    font-size: 12px;
+    color: var(--slate-light);
+    font-style: italic;
+    margin-top: 1px;
+  }
+  .case-header-badge {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border: 1px solid rgba(201,153,58,0.3);
+  }
+  .case-body {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    overflow: hidden;
+  }
+  .case-col {
+    padding: 14px 22px 10px;
+    border-right: 1px solid rgba(201,153,58,0.1);
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .case-col:last-child { border-right: none; }
+  .case-col::-webkit-scrollbar { width: 3px; }
+  .case-col::-webkit-scrollbar-thumb { background: rgba(201,153,58,0.15); }
+
+  .case-letter-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 2px;
+  }
+  .case-letter-badge {
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    background: rgba(201,153,58,0.15);
+    border: 1px solid rgba(201,153,58,0.35);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--gold);
+    font-weight: 500;
+    flex-shrink: 0;
+  }
+  .case-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.13em;
+    color: var(--gold-light);
+    text-transform: uppercase;
+  }
+
+  .vignette {
+    background: rgba(28,42,68,0.7);
+    border-left: 2.5px solid var(--gold);
+    padding: 9px 13px;
+    font-size: 12px;
+    line-height: 1.6;
+    color: var(--text-body);
+  }
+  .vignette strong { color: var(--cream); font-weight: 500; }
+  .vignette em { color: var(--slate-light); font-style: italic; opacity: 1; }
+
+  .cunha-map {
+    background: var(--navy-mid);
+    border: 1px solid rgba(255,255,255,0.05);
+    overflow: hidden;
+  }
+  .cmap-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 8px;
+    letter-spacing: 0.18em;
+    color: var(--gold);
+    text-transform: uppercase;
+    padding: 6px 11px 5px;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+  .cmap-row {
+    display: grid;
+    grid-template-columns: 76px 1fr;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+  .cmap-row:last-child { border-bottom: none; }
+  .cmap-key {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--gold-light);
+    letter-spacing: 0.07em;
+    padding: 5px 8px 5px 11px;
+    background: rgba(212,166,64,0.06);
+    border-right: 1px solid rgba(212,166,64,0.18);
+    display: flex;
+    align-items: center;
+    line-height: 1.3;
+  }
+  .cmap-val {
+    font-size: 12.5px;
+    color: var(--text-body);
+    padding: 5px 10px;
+    line-height: 1.5;
+  }
+  .cmap-val em { font-style: italic; color: var(--slate-light); }
+  .cmap-val strong { color: var(--cream); font-weight: 500; }
+
+  .pivot-box {
+    border: 1px solid rgba(26,188,156,0.3);
+    background: rgba(26,188,156,0.05);
+    padding: 9px 13px;
+    margin-top: auto;
+    flex-shrink: 0;
+  }
+  .pivot-box.orange {
+    border-color: rgba(253,121,168,0.3);
+    background: rgba(253,121,168,0.05);
+  }
+  .pivot-box.purple {
+    border-color: rgba(162,155,254,0.3);
+    background: rgba(162,155,254,0.05);
+  }
+  .pivot-box.amber {
+    border-color: rgba(255,234,167,0.3);
+    background: rgba(255,234,167,0.05);
+  }
+  .pivot-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    color: var(--teal);
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 6px;
+  }
+  .pivot-box.orange .pivot-label { color: #fd79a8; }
+  .pivot-box.purple .pivot-label { color: #a29bfe; }
+  .pivot-box.amber  .pivot-label { color: #ffeaa7; }
+  .pivot-trigger {
+    font-family: 'DM Mono', monospace;
+    font-size: 11.5px;
+    color: var(--cream);
+    margin-bottom: 5px;
+    line-height: 1.45;
+  }
+  .pivot-consequence {
+    font-size: 12.5px;
+    color: var(--text-body);
+    line-height: 1.58;
+  }
+  .pivot-consequence em { font-style: italic; color: var(--slate-light); }
+  .pivot-consequence strong { color: var(--cream); font-weight: 500; }
+
+  /* ── DDI Slide ── */
+  .ddi-slide {
+    height: calc(100vh - 56px);
+    display: flex;
+    flex-direction: column;
+    background: var(--navy);
+    overflow: hidden;
+  }
+  .ddi-header {
+    background: var(--navy-mid);
+    border-bottom: 1px solid rgba(201,153,58,0.15);
+    padding: 12px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-shrink: 0;
+  }
+  .ddi-title-block { display: flex; align-items: center; gap: 14px; }
+  .ddi-icon { font-size: 24px; }
+  .ddi-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--cream);
+  }
+  .ddi-subtitle {
+    font-size: 11.5px;
+    color: var(--slate);
+    font-style: italic;
+    margin-top: 2px;
+  }
+  .ddi-badge {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border: 1px solid rgba(201,153,58,0.3);
+    flex-shrink: 0;
+  }
+
+  .ddi-body {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1.1fr 0.85fr 1.05fr;
+    overflow: hidden;
+  }
+  .ddi-col {
+    padding: 14px 20px 10px;
+    border-right: 1px solid rgba(201,153,58,0.09);
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+  }
+  .ddi-col:last-child { border-right: none; }
+  .ddi-col::-webkit-scrollbar { width: 3px; }
+  .ddi-col::-webkit-scrollbar-thumb { background: rgba(201,153,58,0.15); }
+
+  .ddi-col-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(201,153,58,0.12);
+    flex-shrink: 0;
+  }
+  .ddi-col-icon { font-size: 16px; }
+  .ddi-col-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.14em;
+    color: var(--gold-light);
+    text-transform: uppercase;
+  }
+
+  .chelation-banner {
+    background: rgba(201,153,58,0.07);
+    border: 1px solid rgba(201,153,58,0.22);
+    padding: 9px 12px;
+  }
+  .chelation-banner-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--gold-light);
+    margin-bottom: 5px;
+  }
+  .chelation-banner-body {
+    font-size: 12.5px;
+    color: var(--text-body);
+    line-height: 1.58;
+  }
+  .chelation-banner-body em { color: var(--slate-light); font-style: italic; }
+
+  .ddi-drug-block {
+    background: var(--navy-mid);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-left: 2.5px solid var(--gold);
+    padding: 8px 11px;
+  }
+  .ddi-drug-block.red   { border-left-color: #e74c3c; }
+  .ddi-drug-block.pink  { border-left-color: #fd79a8; }
+  .ddi-drug-block.blue  { border-left-color: #5dade2; }
+  .ddi-drug-block.teal  { border-left-color: var(--teal); }
+  .ddi-drug-block.purple { border-left-color: #a29bfe; }
+
+  .ddi-drug-name {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--gold-light);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+  }
+  .ddi-drug-block.red    .ddi-drug-name { color: #e74c3c; }
+  .ddi-drug-block.pink   .ddi-drug-name { color: #fd79a8; }
+  .ddi-drug-block.blue   .ddi-drug-name { color: #5dade2; }
+  .ddi-drug-block.teal   .ddi-drug-name { color: var(--teal); }
+  .ddi-drug-block.purple .ddi-drug-name { color: #a29bfe; }
+
+  .ddi-drug-detail {
+    font-size: 12.5px;
+    color: var(--text-body);
+    line-height: 1.55;
+  }
+  .ddi-drug-detail em { font-style: italic; color: var(--slate-light); }
+  .ddi-drug-detail strong { color: var(--cream); font-weight: 500; }
+
+  .ddi-sep-rule {
+    height: 1px;
+    background: rgba(201,153,58,0.1);
+    flex-shrink: 0;
+  }
+
+  .otc-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+  }
+  .otc-card {
+    background: var(--navy-mid);
+    border: 1px solid rgba(255,255,255,0.05);
+    padding: 7px 10px;
+    border-top: 2px solid rgba(201,153,58,0.35);
+  }
+  .otc-card-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: var(--gold-light);
+    text-transform: uppercase;
+    margin-bottom: 5px;
+  }
+  .otc-card-body {
+    font-size: 12px;
+    color: var(--text-body);
+    line-height: 1.55;
+  }
+  .otc-card-body em { font-style: italic; color: var(--slate-light); }
+
+  .ddi-clinical-note {
+    background: rgba(26,188,156,0.06);
+    border: 1px solid rgba(26,188,156,0.22);
+    padding: 8px 11px;
+    font-size: 11.5px;
+    color: var(--text-body);
+    line-height: 1.55;
+    flex-shrink: 0;
+  }
+  .ddi-clinical-note-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    color: var(--teal);
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 5px;
+  }
+  .ddi-clinical-note em { font-style: italic; }
+  .ddi-clinical-note strong { color: var(--cream); }
+
+  .timing-box {
+    background: rgba(93,173,226,0.06);
+    border: 1px solid rgba(93,173,226,0.22);
+    padding: 8px 11px;
+  }
+  .timing-box-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    color: #6ec0f0;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 6px;
+  }
+  .timing-row {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    font-size: 11.5px;
+    padding: 2px 0;
+  }
+  .timing-arrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: #6ec0f0;
+    flex-shrink: 0;
+  }
+  .timing-text { color: var(--text-body); line-height: 1.5; font-size: 12.5px; }
+  .timing-text strong { color: var(--cream); }
+
+  /* ── Single-Case Slides ── */
+  .single-case-slide {
+    height: calc(100vh - 56px);
+    display: flex;
+    flex-direction: column;
+    background: var(--navy);
+    overflow: hidden;
+  }
+  .sc-body {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1.25fr 0.85fr;
+    overflow: hidden;
+  }
+  .sc-panel {
+    padding: 18px 24px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+    overflow-y: auto;
+    border-right: 1px solid rgba(201,153,58,0.09);
+  }
+  .sc-panel:last-child { border-right: none; }
+  .sc-panel::-webkit-scrollbar { width: 3px; }
+  .sc-panel::-webkit-scrollbar-thumb { background: rgba(201,153,58,0.15); }
+
+  .sc-panel-hd {
+    font-family: 'DM Mono', monospace;
+    font-size: 8.5px;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    text-transform: uppercase;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(201,153,58,0.1);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+  }
+  .sc-panel-hd-icon { font-size: 14px; }
+
+  /* Vignette — expanded for single-case */
+  .vignette-lg {
+    background: rgba(28,42,68,0.65);
+    border-left: 3px solid var(--gold);
+    padding: 14px 16px;
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--text-body);
+    flex-shrink: 0;
+  }
+  .vignette-lg strong { color: var(--cream); font-weight: 500; }
+  .vignette-lg em { color: var(--slate-light); font-style: italic; }
+
+  /* Key clinical cues */
+  .cue-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    color: var(--gold-light);
+    text-transform: uppercase;
+    margin-bottom: 7px;
+  }
+  .cue-list { display: flex; flex-direction: column; gap: 5px; }
+  .cue-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+    font-size: 12.5px;
+    color: var(--text-body);
+    line-height: 1.45;
+  }
+  .cue-marker {
+    width: 16px; height: 16px;
+    border-radius: 50%;
+    background: rgba(201,153,58,0.15);
+    border: 1px solid rgba(201,153,58,0.4);
+    font-size: 8px;
+    color: var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+    font-family: 'DM Mono', monospace;
+  }
+  .cue-item em { font-style: italic; color: var(--slate-light); }
+  .cue-item strong { color: var(--cream); font-weight: 500; }
+
+  /* Cunha map — expanded for single-case */
+  .cmap-lg {
+    background: var(--navy-mid);
+    border: 1px solid rgba(255,255,255,0.05);
+    overflow: hidden;
+    flex: 1;
+  }
+  .cmap-lg-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 8px;
+    letter-spacing: 0.18em;
+    color: var(--gold);
+    text-transform: uppercase;
+    padding: 7px 14px 6px;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    background: rgba(201,153,58,0.03);
+  }
+  .cmap-lg-row {
+    display: grid;
+    grid-template-columns: 88px 1fr;
+    border-bottom: 1px solid rgba(255,255,255,0.045);
+  }
+  .cmap-lg-row:last-child { border-bottom: none; }
+  .cmap-lg-key {
+    font-family: 'DM Mono', monospace;
+    font-size: 10.5px;
+    color: var(--gold-light);
+    letter-spacing: 0.07em;
+    padding: 9px 10px 9px 14px;
+    background: rgba(212,166,64,0.07);
+    border-right: 1px solid rgba(212,166,64,0.2);
+    display: flex;
+    align-items: flex-start;
+    line-height: 1.3;
+    padding-top: 10px;
+    text-transform: uppercase;
+  }
+  .cmap-lg-val {
+    font-size: 13px;
+    color: var(--text-body);
+    padding: 9px 14px;
+    line-height: 1.55;
+  }
+  .cmap-lg-val em { font-style: italic; color: var(--slate-light); }
+  .cmap-lg-val strong { color: var(--cream); font-weight: 500; }
+
+  /* Pivot — full-height for single-case */
+  .pivot-full {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .pivot-full-box {
+    border: 1px solid rgba(26,188,156,0.28);
+    background: rgba(26,188,156,0.05);
+    padding: 13px 15px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .pivot-full-box.orange { border-color: rgba(253,121,168,0.28); background: rgba(253,121,168,0.05); }
+  .pivot-full-box.purple { border-color: rgba(162,155,254,0.28); background: rgba(162,155,254,0.05); }
+  .pivot-full-box.amber  { border-color: rgba(255,234,167,0.28); background: rgba(255,234,167,0.05); }
+  .pivot-full-box.red    { border-color: rgba(231,76,60,0.28);   background: rgba(231,76,60,0.05); }
+
+  .pivot-full-lbl {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    color: var(--teal);
+    text-transform: uppercase;
+    display: block;
+  }
+  .pivot-full-box.orange .pivot-full-lbl { color: #fd79a8; }
+  .pivot-full-box.purple .pivot-full-lbl { color: #a29bfe; }
+  .pivot-full-box.amber  .pivot-full-lbl { color: #ffeaa7; }
+  .pivot-full-box.red    .pivot-full-lbl { color: #e74c3c; }
+
+  .pivot-full-if {
+    font-family: 'Playfair Display', serif;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--cream);
+    line-height: 1.35;
+    padding: 8px 0 4px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .pivot-full-step {
+    font-family: 'DM Mono', monospace;
+    font-size: 10.5px;
+    color: var(--slate-light);
+    letter-spacing: 0.05em;
+    line-height: 1.45;
+  }
+  .pivot-full-then {
+    font-size: 13px;
+    color: var(--text-body);
+    line-height: 1.62;
+    flex: 1;
+  }
+  .pivot-full-then em { font-style: italic; color: var(--slate-light); }
+  .pivot-full-then strong { color: var(--cream); font-weight: 500; }
+
+  /* Case sequence indicator */
+  .case-seq-badge {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: var(--slate-light);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .case-seq-pip {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: rgba(201,153,58,0.25);
+    display: inline-block;
+  }
+  .case-seq-pip.active { background: var(--gold); }
 </style>
 </head>
 <body>
@@ -1067,6 +1671,172 @@
     </div>
   </div>
 
+  <!-- ── SLIDE 5b: Drug Interactions — OTC Focus ── -->
+  <div class="slide" id="s5b">
+    <div class="ddi-slide">
+
+      <div class="ddi-header">
+        <div class="ddi-title-block">
+          <div class="ddi-icon">⚠️</div>
+          <div>
+            <div class="ddi-title">Antibiotic Drug Interactions — What Patients Don't Volunteer</div>
+            <div class="ddi-subtitle">OTC minerals, supplements, and common medications that silently sabotage antibiotic efficacy</div>
+          </div>
+        </div>
+        <div class="ddi-badge">Step 5 Extension · Host Factors</div>
+      </div>
+
+      <div class="ddi-body">
+
+        <!-- ── COL 1: CHELATION ── -->
+        <div class="ddi-col">
+          <div class="ddi-col-header">
+            <div class="ddi-col-icon">🧲</div>
+            <div class="ddi-col-title">The Chelation Phenomenon — Cunha</div>
+          </div>
+
+          <div class="chelation-banner">
+            <div class="chelation-banner-title">Divalent & Trivalent Cations Bind Antibiotics in the GI Tract</div>
+            <div class="chelation-banner-body">
+              Fe²⁺, Ca²⁺, Mg²⁺, Zn²⁺, and Al³⁺ form insoluble complexes with fluoroquinolones and tetracyclines in the gut lumen, reducing oral bioavailability by <strong>50–90%</strong>. The drug is present in the capsule but never absorbed. <em>The patient takes the antibiotic — it just doesn't work.</em>
+            </div>
+          </div>
+
+          <div class="ddi-drug-block">
+            <div class="ddi-drug-name">Fluoroquinolones (Ciprofloxacin, Levofloxacin, Moxifloxacin)</div>
+            <div class="ddi-drug-detail">
+              Chelation with any divalent/trivalent cation → ciprofloxacin bioavailability drops from ~70% to &lt;10% if taken simultaneously with antacids or multivitamins. Levofloxacin similarly affected. <strong>Most under-recognized cause of oral FQ treatment failure.</strong>
+            </div>
+          </div>
+
+          <div class="ddi-drug-block pink">
+            <div class="ddi-drug-name">Tetracyclines (Doxycycline, Minocycline)</div>
+            <div class="ddi-drug-detail">
+              Same chelation mechanism. Doxycycline absorption ↓ by ~80–85% with iron. Dairy (Ca²⁺) reduces absorption significantly but less than iron supplements. <em>Minocycline slightly less susceptible to dairy than doxycycline</em> but still affected by supplement-level cation doses.
+            </div>
+          </div>
+
+          <div class="timing-box">
+            <span class="timing-box-label">Separation Rule — When to Take Antibiotics Relative to Cations</span>
+            <div class="timing-row">
+              <span class="timing-arrow">→</span>
+              <span class="timing-text"><strong>FQs:</strong> Take antibiotic ≥2h <em>before</em> or ≥6h <em>after</em> cation-containing product</span>
+            </div>
+            <div class="timing-row">
+              <span class="timing-arrow">→</span>
+              <span class="timing-text"><strong>Tetracyclines:</strong> Take ≥2h before or ≥4h after; avoid dairy within 1h of doxycycline dose</span>
+            </div>
+            <div class="timing-row">
+              <span class="timing-arrow">→</span>
+              <span class="timing-text"><strong>IV route bypasses entirely</strong> — chelation is exclusively a PO bioavailability issue</span>
+            </div>
+            <div class="timing-row">
+              <span class="timing-arrow">→</span>
+              <span class="timing-text">Moxifloxacin (PO): same rule applies despite good bioavailability at baseline</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── COL 2: OTC SOURCES ── -->
+        <div class="ddi-col">
+          <div class="ddi-col-header">
+            <div class="ddi-col-icon">🛒</div>
+            <div class="ddi-col-title">OTC Products Patients Forget to Mention</div>
+          </div>
+
+          <div class="ddi-clinical-note">
+            <span class="ddi-clinical-note-label">The History Gap</span>
+            Patients reliably report prescription medications but routinely omit vitamins, supplements, and antacids — often because they don't consider them "real medicine." <strong>Always ask specifically:</strong> <em>"Do you take any vitamins, minerals, antacids, or herbal supplements?"</em>
+          </div>
+
+          <div class="otc-grid">
+            <div class="otc-card">
+              <div class="otc-card-label">Multivitamins</div>
+              <div class="otc-card-body">Centrum, One-A-Day, Nature Made contain <em>Fe²⁺, Ca²⁺, Mg²⁺, Zn²⁺</em> — all four chelating cations in one tablet. Taken daily, often at breakfast with the antibiotic.</div>
+            </div>
+            <div class="otc-card">
+              <div class="otc-card-label">Calcium Supplements</div>
+              <div class="otc-card-body">Caltrate, Os-Cal, Viactiv, Citracal. Often taken twice daily. TUMS used as a Ca supplement adds Ca²⁺ 3–4× daily. Especially common in older women.</div>
+            </div>
+            <div class="otc-card">
+              <div class="otc-card-label">Iron Supplements</div>
+              <div class="otc-card-body">Slow FE, FeroSul, ferrous sulfate 325mg. Most potent chelator of the group. 1 tablet reduces ciprofloxacin bioavailability to near zero if taken simultaneously.</div>
+            </div>
+            <div class="otc-card">
+              <div class="otc-card-label">Antacids</div>
+              <div class="otc-card-body">Maalox, Mylanta, Gaviscon, Rolaids contain Mg²⁺/Al³⁺/Ca²⁺. Taken PRN for heartburn — patient may not realize it's an issue.</div>
+            </div>
+            <div class="otc-card">
+              <div class="otc-card-label">Zinc Supplements</div>
+              <div class="otc-card-body">Zinc lozenges (Cold-EEZE, Zicam), zinc gluconate 50mg tabs. Popular OTC immune supplements — Zn²⁺ is a potent chelator.</div>
+            </div>
+            <div class="otc-card">
+              <div class="otc-card-label">Magnesium</div>
+              <div class="otc-card-body">Mg supplements (for sleep, constipation, muscle cramps — Nature Calm, MOM) add Mg²⁺. Also PPIs → hypomagnesemia paradox: more Mg supplementation prescribed.</div>
+            </div>
+            <div class="otc-card">
+              <div class="otc-card-label">Prenatal Vitamins</div>
+              <div class="otc-card-body">Highest chelator load: Fe²⁺ ~27mg + Ca²⁺ + Zn²⁺ + Mg²⁺ all in one capsule. Critical to counsel pregnant patients receiving doxycycline <em>(though doxy itself avoided in pregnancy).</em></div>
+            </div>
+            <div class="otc-card">
+              <div class="otc-card-label">Dairy Foods</div>
+              <div class="otc-card-body">Milk, yogurt, cheese contain Ca²⁺. Less potent than supplements but clinically relevant for tetracyclines if consumed within 1h of dose. FQ interaction with dairy is minor.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── COL 3: BEYOND CHELATION ── -->
+        <div class="ddi-col">
+          <div class="ddi-col-header">
+            <div class="ddi-col-icon">💊</div>
+            <div class="ddi-col-title">Beyond Chelation — CYP, QTc & Serotonin</div>
+          </div>
+
+          <div class="ddi-drug-block red">
+            <div class="ddi-drug-name">Rifampin — Potent CYP3A4/2C9 Inducer</div>
+            <div class="ddi-drug-detail">
+              ↓ levels of warfarin (may need 2–3× dose increase; INR monitoring q3–5d at initiation), calcineurin inhibitors (cyclosporine, tacrolimus — transplant rejection risk), combined oral contraceptives (OCP failure), HIV ARVs (PIs, NNRTIs), methadone, many antiseizure medications. <strong>Review entire medication list before starting rifampin.</strong>
+            </div>
+          </div>
+
+          <div class="ddi-drug-block">
+            <div class="ddi-drug-name">Metronidazole — CYP2C9 Inhibition + Disulfiram Effect</div>
+            <div class="ddi-drug-detail">
+              Inhibits CYP2C9 → ↑ warfarin effect (INR may double); check INR within 3–5d of starting. <strong>Disulfiram-like reaction</strong> with ethanol (even mouthwash, liquid medications, vanilla extract): flushing, tachycardia, nausea, vomiting. Counsel patients explicitly — <em>"no alcohol for the duration and 48h after the last dose."</em>
+            </div>
+          </div>
+
+          <div class="ddi-drug-block blue">
+            <div class="ddi-drug-name">FQs & Azithromycin — QTc Prolongation</div>
+            <div class="ddi-drug-detail">
+              Additive QTc risk with: antipsychotics (haloperidol, quetiapine, ziprasidone), antihistamines (hydroxyzine, diphenhydramine — OTC sleep aids and Benadryl), ondansetron, tricyclic antidepressants, amiodarone. Check baseline QTc; if &gt;470ms (F) / &gt;450ms (M): reconsider or monitor. <em>Azithromycin + quetiapine is a common high-risk pairing.</em>
+            </div>
+          </div>
+
+          <div class="ddi-drug-block purple">
+            <div class="ddi-drug-name">Linezolid — MAO Inhibition & Serotonin Syndrome</div>
+            <div class="ddi-drug-detail">
+              Weak, reversible MAO inhibitor. Risk with: SSRIs (sertraline, fluoxetine — very common), SNRIs, tramadol, <strong>OTC dextromethorphan (DXM)</strong> in cough suppressants (Robitussin DM, NyQuil), meperidine, triptans, St. John's Wort. DXM interaction is frequently missed — patients don't consider cough syrup a drug interaction risk. Symptoms: hyperthermia, clonus, agitation, diaphoresis.
+            </div>
+          </div>
+
+          <div class="ddi-drug-block teal">
+            <div class="ddi-drug-name">St. John's Wort — CYP3A4 Inducer (OTC Herbal)</div>
+            <div class="ddi-drug-detail">
+              Hypericum perforatum: widely used OTC for depression/anxiety. Induces CYP3A4 similarly to rifampin — ↓ levels of antiretrovirals, cyclosporine, warfarin, oral contraceptives. Patients virtually never mention herbal supplements unless directly asked. Also serotonergic → additive risk with linezolid.
+            </div>
+          </div>
+
+          <div class="ddi-clinical-note">
+            <span class="ddi-clinical-note-label">The 5-Second Screening Question</span>
+            Before prescribing any oral FQ, tetracycline, linezolid, or rifampin-based regimen, ask: <strong>"Do you take any vitamins, minerals, antacids, herbal supplements, or anything from a health food store?"</strong> — and specifically ask about <em>multivitamins, calcium, iron, and cough medicine</em> by name. Most patients will not connect these to antibiotic therapy without explicit prompting.
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
   <!-- ── SLIDE 6: De-escalation ── -->
   <div class="slide" id="s6">
     <div class="step-slide s6">
@@ -1227,6 +1997,449 @@
       </div>
       <div class="summary-note">
         Burke A. Cunha, MD, MACP · <em>Antibiotic Essentials</em> · IDSA / ASHP Stewardship Principles · AMS Core Measures
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <!-- ══════════════ CASE R-A: CAP / Legionella ══════════════ -->
+  <div class="slide" id="sc-resp-a">
+    <div class="single-case-slide">
+      <div class="case-header">
+        <div class="case-header-left">
+          <div class="case-syndrome-icon">🫁</div>
+          <div>
+            <div class="case-syndrome-name">Respiratory — Case 1 of 2</div>
+            <div class="case-syndrome-sub">Community-Acquired Pneumonia · Atypical Pattern (Legionella)</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:14px">
+          <div class="case-seq-badge"><span class="case-seq-pip active"></span><span class="case-seq-pip"></span> CAP → VAP</div>
+          <div class="case-header-badge">Case Application · Steps 1–6</div>
+        </div>
+      </div>
+      <div class="sc-body">
+        <div class="sc-panel">
+          <div class="sc-panel-hd"><span class="sc-panel-hd-icon">👤</span>Patient Vignette</div>
+          <div class="vignette-lg"><strong>52-year-old woman, previously healthy.</strong> Three-day illness: fever 39.6 °C, non-productive cough, progressive confusion, Na 128 mEq/L. Vitals: HR 82 (relative bradycardia for temp), SpO₂ 91% RA. CXR: LLL consolidation. No recent hospitalization; no antibiotics ×90d.</div>
+          <div class="cue-label">Key Clinical Cues Driving Pathogen Selection</div>
+          <div class="cue-list">
+            <div class="cue-item"><div class="cue-marker">①</div><span><strong>Relative bradycardia</strong> — temp–pulse dissociation at 39.6 °C with HR 82; hallmark of atypical intracellular pathogens (Faget sign)</span></div>
+            <div class="cue-item"><div class="cue-marker">②</div><span><strong>Hyponatremia</strong> — extrapulmonary manifestation strongly associated with <em>Legionella pneumophila</em> serogroup 1</span></div>
+            <div class="cue-item"><div class="cue-marker">③</div><span><strong>Mental status change</strong> — extrapulmonary feature; seen in up to 50% of Legionella CAP, unusual for pneumococcal CAP</span></div>
+            <div class="cue-item"><div class="cue-marker">④</div><span><strong>Community-onset, no MDR risk</strong> — atypical pattern + no healthcare exposures excludes standard CAP empiric monotherapy with β-lactam</span></div>
+          </div>
+        </div>
+        <div class="sc-panel">
+          <div class="sc-panel-hd"><span class="sc-panel-hd-icon">🔬</span>Cunha Framework — Step-by-Step</div>
+          <div class="cmap-lg">
+            <div class="cmap-lg-title">Six-Step Logic Applied to This Case</div>
+            <div class="cmap-lg-row"><div class="cmap-lg-key">Site</div><div class="cmap-lg-val">Lung — community-acquired lower lobe pneumonia; no healthcare exposures → CAP framework; lower lobe consolidation consistent with Legionella</div></div>
+            <div class="cmap-lg-row"><div class="cmap-lg-key">Pathogen</div><div class="cmap-lg-val">Temp–pulse dissociation + hyponatremia + confusion → <em>Legionella pneumophila</em> (atypical, obligate intracellular). <em>Mycoplasma</em> and <em>Chlamydophila</em> possible but lack this extrapulmonary signature cluster.</div></div>
+            <div class="cmap-lg-row"><div class="cmap-lg-key">Spectrum</div><div class="cmap-lg-val">β-lactam monotherapy <strong>insufficient</strong> — no intracellular activity. Requires FQ or macrolide. Levofloxacin preferred over azithromycin for severe/ICU Legionella (superior bactericidal activity in vitro and clinically).</div></div>
+            <div class="cmap-lg-row"><div class="cmap-lg-key">PK / PD</div><div class="cmap-lg-val">Levofloxacin: ELF:plasma &gt;10:1; excellent macrophage penetration where <em>Legionella</em> replicates intracellularly. Azithromycin: high tissue ratio but bacteriostatic — avoid if septic or ICU presentation.</div></div>
+            <div class="cmap-lg-row"><div class="cmap-lg-key">Host</div><div class="cmap-lg-val">Healthy host; check baseline QTc (if &gt;500ms → switch to azithromycin). No renal dose adjustment needed. Order urinary <em>Legionella</em> antigen (serogroup 1; sensitivity ~80%, specificity &gt;99%).</div></div>
+            <div class="cmap-lg-row"><div class="cmap-lg-key">De-escalate</div><div class="cmap-lg-val">Levofloxacin 750mg PO/IV × 5 days. PCT at 48h — if ↓ ≥80% and clinically improving, complete 5d course and stop. Urinary antigen positive confirms <em>Legionella</em>; no broadening needed.</div></div>
+          </div>
+        </div>
+        <div class="sc-panel">
+          <div class="sc-panel-hd"><span class="sc-panel-hd-icon">🔄</span>Circumstance Pivot</div>
+          <div class="pivot-full">
+            <div class="pivot-full-box">
+              <span class="pivot-full-lbl">If One Variable Changes →</span>
+              <div class="pivot-full-if">Same presentation — but CD4 count returns at 72 cells/μL</div>
+              <div class="pivot-full-step">Step 2 (Pathogen) shifts entirely · immune defect overrides epidemiologic atypical pattern</div>
+              <div class="pivot-full-then">At CD4 &lt;200, <strong>PCP (<em>Pneumocystis jirovecii</em>)</strong> becomes highest priority, followed by <em>CMV</em> pneumonitis, <em>Cryptococcus</em>, and endemic fungi.<br><br><strong>Actions:</strong> Obtain BAL urgently for Pneumocystis DFA/PCR, fungal cultures, CMV PCR. Start empiric <strong>TMP-SMX IV</strong> immediately if bilateral infiltrates + CD4 &lt;200. Add <em>Legionella</em> antigen — it remains possible but is no longer the primary hypothesis.<br><br><em>Levofloxacin alone is not sufficient empiric therapy in this host.</em></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════ CASE R-B: VAP / MDR ══════════════ -->
+  <div class="slide" id="sc-resp-b">
+    <div class="single-case-slide">
+      <div class="case-header">
+        <div class="case-header-left">
+          <div class="case-syndrome-icon">🫁</div>
+          <div>
+            <div class="case-syndrome-name">Respiratory — Case 2 of 2</div>
+            <div class="case-syndrome-sub">Ventilator-Associated Pneumonia · MDR Risk, Prior Antibiotic Exposure</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:14px">
+          <div class="case-seq-badge"><span class="case-seq-pip"></span><span class="case-seq-pip active"></span> CAP → VAP</div>
+          <div class="case-header-badge">Case Application · Steps 1–6</div>
+        </div>
+      </div>
+      <div class="sc-body">
+        <div class="sc-panel">
+          <div class="sc-panel-hd"><span class="sc-panel-hd-icon">👤</span>Patient Vignette</div>
+          <div class="vignette-lg"><strong>67-year-old man, ICU day 8 post-sigmoid colectomy.</strong> Intubated. New fever 38.8 °C, increased purulent secretions, new RLL infiltrate on CXR, WBC 18.4 K with left shift. CPIS 7. Pip-tazo × 3d for surgical prophylaxis (completed day 3). Blood cultures × 2 and BAL drawn before antibiotic change.</div>
+          <div class="cue-label">Key Clinical Cues Driving Pathogen Selection</div>
+          <div class="cue-list">
+            <div class="cue-item"><div class="cue-marker">①</div><span><strong>HAP/VAP, ICU &gt;5 days</strong> — healthcare-acquired flora replaces community organisms; MDR GNRs and MRSA must be covered empirically</span></div>
+            <div class="cue-item"><div class="cue-marker">②</div><span><strong>Prior pip-tazo × 3d</strong> — recent β-lactam/BLI exposure creates selective pressure for resistant GNRs (ESBL, <em>Pseudomonas</em> with acquired resistance)</span></div>
+            <div class="cue-item"><div class="cue-marker">③</div><span><strong>Post-abdominal surgery</strong> — aspiration risk, gut flora inoculation; ESBL GNRs from enteric source are prominent concerns</span></div>
+            <div class="cue-item"><div class="cue-marker">④</div><span><strong>ICU &gt;5d</strong> — independent MRSA risk factor; add vancomycin empirically until MRSA nasal swab or cultures return negative</span></div>
+          </div>
+        </div>
+        <div class="sc-panel">
+          <div class="sc-panel-hd"><span class="sc-panel-hd-icon">🔬</span>Cunha Framework — Step-by-Step</div>
+          <div class="cmap-lg">
+            <div class="cmap-lg-title">Six-Step Logic Applied to This Case</div>
+            <div class="cmap-lg-row"><div class="cmap-lg-key">Site</div><div class="cmap-lg-val">Lung — VAP; intubated &gt;48h, ICU &gt;5d → healthcare-acquired pathogen hierarchy; community CAP organisms are not the relevant differential</div></div>
+            <div class="cmap-lg-row"><div class="cmap-lg-key">Pathogen</div><div class="cmap-lg-val">Prior pip-tazo + ICU + post-abdominal surgery → <em>P. aeruginosa</em>, ESBL <em>Klebsiella/Enterobacter</em>, MRSA. Both GNR and GPC empiric coverage required.</div></div>
+            <div class="cmap-lg-row"><div class="cmap-lg-key">Spectrum</div><div class="cmap-lg-val"><strong>Cefepime or pip-tazo</strong> (anti-pseudomonal) + <strong>vancomycin</strong> (MRSA). Consider meropenem upfront if institutional ESBL prevalence is high or prior ESBL isolates in this patient.</div></div>
+            <div class="cmap-lg-row"><div class="cmap-lg-key">PK / PD</div><div class="cmap-lg-val">Extended infusion pip-tazo 3.375g q8h over 4h (or cefepime 2g q8h over 4h) maximizes %T&gt;MIC for <em>Pseudomonas</em>. Vancomycin: AUC/MIC 400–600 target via Bayesian dosing; load 25–30mg/kg × 1.</div></div>
+            <div class="cmap-lg-row"><div class="cmap-lg-key">Host</div><div class="cmap-lg-val">Post-op ICU: check SCr q12–24h; ↓ albumin alters free drug fractions; review sedation/analgesia for DDIs; MRSA nares swab (high NPV — if negative, MRSA coverage can stop at 48h).</div></div>
+            <div class="cmap-lg-row"><div class="cmap-lg-key">De-escalate</div><div class="cmap-lg-val">BAL cx at 48h: susceptible GNR only → narrow to ceftriaxone; MRSA not confirmed → d/c vancomycin; 7–8d total if clinical response (PCT-guided). Do not continue double GNR coverage once susceptibilities known.</div></div>
+          </div>
+        </div>
+        <div class="sc-panel">
+          <div class="sc-panel-hd"><span class="sc-panel-hd-icon">🔄</span>Circumstance Pivot</div>
+          <div class="pivot-full">
+            <div class="pivot-full-box orange">
+              <span class="pivot-full-lbl">If Culture Results Change →</span>
+              <div class="pivot-full-if">BAL grows ESBL-producing <em>Klebsiella pneumoniae</em></div>
+              <div class="pivot-full-step">Step 3 (Spectrum) must change · ESBL invalidates both cefepime and pip-tazo</div>
+              <div class="pivot-full-then">ESBL producers hydrolyze all cephalosporins and pip-tazo — <em>in vitro susceptibility does not translate to clinical efficacy</em> for serious ESBL infections (inoculum effect, AUC failure at standard doses).<br><br><strong>Switch immediately to meropenem 1g q8h IV</strong> (or 2g q8h over 3h extended infusion if MIC ≥2 mg/L). Discontinue vancomycin if no MRSA confirmed.<br><br><em>Continuing cefepime because it "looks susceptible" on the report is a common and consequential error for ESBL infections.</em></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════ CASE U-A: Uncomplicated Cystitis ══════════════ -->
+  <div class="slide" id="sc-uti-a">
+    <div class="single-case-slide">
+      <div class="case-header">
+        <div class="case-header-left">
+          <div class="case-syndrome-icon">🫘</div>
+          <div>
+            <div class="case-syndrome-name">Urinary Tract — Case 1 of 2</div>
+            <div class="case-syndrome-sub">Uncomplicated Cystitis · Healthy Young Woman, Community-Onset</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:14px">
+          <div class="case-seq-badge"><span class="case-seq-pip active"></span><span class="case-seq-pip"></span> Cystitis → Urosepsis</div>
+          <div class="case-header-badge">Case Application · Steps 1–6</div>
+        </div>
+      </div>
+      <div class="sc-body">
+        <div class="sc-panel">
+          <div class="sc-panel-hd"><span class="sc-panel-hd-icon">👤</span>Patient Vignette</div>
+          <div class="vignette-lg"><strong>24-year-old woman, no comorbidities, not pregnant.</strong> Two-day dysuria, urinary frequency, and suprapubic pressure. Afebrile. No CVA tenderness. UA: pyuria (WBC &gt;10/hpf), bacteriuria 3+, nitrites positive. No recent antibiotics, no healthcare contact, no urologic abnormalities. Local <em>E. coli</em> TMP-SMX resistance: 14%.</div>
+          <div class="cue-label">Key Clinical Cues — Why This Stays Narrow</div>
+          <div class="cue-list">
+            <div class="cue-item"><div class="cue-marker">①</div><span><strong>Afebrile, no CVA tenderness</strong> — lower tract only; upper tract involvement would require longer course and possible IV therapy</span></div>
+            <div class="cue-item"><div class="cue-marker">②</div><span><strong>No MDR risk factors</strong> — community-onset, no prior antibiotics, no healthcare exposures → susceptible wild-type <em>E. coli</em> overwhelmingly likely</span></div>
+            <div class="cue-item"><div class="cue-marker">③</div><span><strong>Local TMP-SMX resistance 14%</strong> — below the 20% empiric threshold; TMP-SMX remains reliable as first-line therapy</span></div>
+            <div class="cue-item"><div class="cue-marker">④</div><span><strong>No culture needed</strong> — IDSA: urine culture not required before treating uncomplicated cystitis in otherwise healthy non-pregnant women</span></div>
+          </div>
+        </div>
+        <div class="sc-panel">
+          <div class="sc-panel-hd"><span class="sc-panel-hd-icon">🔬</span>Cunha Framework — Step-by-Step</div>
+          <div class="cmap-lg">
+            <div class="cmap-lg-title">Six-Step Logic Applied to This Case</div>
+            <div class="cmap-lg-row"><div class="cmap-lg-key">Site</div><div class="cmap-lg-val">Lower urinary tract — uncomplicated cystitis; no systemic signs, no upper tract involvement; oral outpatient therapy appropriate</div></div>
+            <div class="cmap-lg-row"><div class="cmap-lg-key">Pathogen</div><div class="cmap-lg-val"><em>E. coli</em> (80–85%), <em>Staph. saprophyticus</em> (young sexually active women, 5–15%). Community-onset, no MDR risk → susceptible wild-type organisms highly probable.</div></div>
+            <div class="cmap-lg-row"><div class="cmap-lg-key">Spectrum</div><div class="cmap-lg-val">Narrow: <strong>TMP-SMX DS</strong> (local resistance &lt;20%) or <strong>nitrofurantoin macrocrystals</strong>. FQ not first-line — reserve for complicated UTI/pyelonephritis (IDSA stewardship position 2011).</div></div>
+            <div class="cmap-lg-row"><div class="cmap-lg-key">PK / PD</div><div class="cmap-lg-val">TMP-SMX achieves high urinary bactericidal concentrations; 90%+ oral bioavailability. Nitrofurantoin concentrates in urine — does <strong>not</strong> achieve therapeutic plasma or renal parenchymal levels; unsuitable for pyelonephritis.</div></div>
+            <div class="cmap-lg-row"><div class="cmap-lg-key">Host</div><div class="cmap-lg-val">Healthy, not pregnant, normal renal function (nitrofurantoin requires CrCl &gt;30). No drug interactions. Sulfonamide allergy? → nitrofurantoin or fosfomycin 3g × 1 dose.</div></div>
+            <div class="cmap-lg-row"><div class="cmap-lg-key">De-escalate</div><div class="cmap-lg-val">TMP-SMX DS × <strong>3 days</strong>; nitrofurantoin 100mg ER BID × <strong>5 days</strong>. No test-of-cure UA required if symptoms resolve. No follow-up culture needed.</div></div>
+          </div>
+        </div>
+        <div class="sc-panel">
+          <div class="sc-panel-hd"><span class="sc-panel-hd-icon">🔄</span>Circumstance Pivot</div>
+          <div class="pivot-full">
+            <div class="pivot-full-box purple">
+              <span class="pivot-full-lbl">If One Variable Changes →</span>
+              <div class="pivot-full-if">Same presentation — patient is 14 weeks pregnant</div>
+              <div class="pivot-full-step">Step 5 (Host) overrides Steps 3 & 6 · pregnancy contraindications cascade through all first-choice agents</div>
+              <div class="pivot-full-then"><strong>TMP-SMX:</strong> Folate antagonism → avoid 1st trimester; neonatal kernicterus risk in 3rd trimester.<br><br><strong>Nitrofurantoin:</strong> Avoid at term / 3rd trimester (neonatal hemolytic anemia risk).<br><br><strong>FQs:</strong> Avoid throughout pregnancy (cartilage toxicity).<br><br><strong>Safe choice: cephalexin 500mg TID × 7 days</strong>. In pregnancy, <em>all</em> bacteriuria (including asymptomatic) must be treated — untreated bacteriuria → 25–30% pyelonephritis risk + preterm labor. Obtain culture; test-of-cure required at 1–2 weeks post-treatment.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════ CASE U-B: Urosepsis ══════════════ -->
+  <div class="slide" id="sc-uti-b">
+    <div class="single-case-slide">
+      <div class="case-header">
+        <div class="case-header-left">
+          <div class="case-syndrome-icon">🫘</div>
+          <div>
+            <div class="case-syndrome-name">Urinary Tract — Case 2 of 2</div>
+            <div class="case-syndrome-sub">Urosepsis · Nursing Home Resident, Recurrent UTIs, Bacteremic</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:14px">
+          <div class="case-seq-badge"><span class="case-seq-pip"></span><span class="case-seq-pip active"></span> Cystitis → Urosepsis</div>
+          <div class="case-header-badge">Case Application · Steps 1–6</div>
+        </div>
+      </div>
+      <div class="sc-body">
+        <div class="sc-panel">
+          <div class="sc-panel-hd"><span class="sc-panel-hd-icon">👤</span>Patient Vignette</div>
+          <div class="vignette-lg"><strong>72-year-old woman, T2DM, nursing home resident.</strong> Recurrent UTIs (3rd episode in 6 months). Found altered (A&amp;O × 3 now confused). T 39.1 °C, HR 118, BP 88/56, RR 20. UA: WBC &gt;100/hpf, bacteria 4+, gross pyuria. Foley catheter × 3 weeks (now removed). Prior aminopenicillin completed 6 weeks ago. Blood cultures × 2 drawn. Renal US ordered.</div>
+          <div class="cue-label">Key Clinical Cues — Why Broad Empiric Coverage Is Justified</div>
+          <div class="cue-list">
+            <div class="cue-item"><div class="cue-marker">①</div><span><strong>Sepsis criteria met</strong> (HR 118, BP 88/56, T 39.1, AMS) — bacteremia likely; blood cultures before antibiotics, then do not delay empiric therapy</span></div>
+            <div class="cue-item"><div class="cue-marker">②</div><span><strong>NH + T2DM + prior aminopenicillin + Foley</strong> — four independent risk factors for ESBL-producing GNRs and <em>Enterococcus</em></span></div>
+            <div class="cue-item"><div class="cue-marker">③</div><span><strong>Recurrent UTIs × 3 episodes</strong> — prior antibiotic courses drive progressive resistance; assume MDR organisms until susceptibilities return</span></div>
+            <div class="cue-item"><div class="cue-marker">④</div><span><strong>AMS in elderly NH patient</strong> — altered mental status may be the <em>only</em> presenting UTI symptom; always consider sepsis source in confused NH residents</span></div>
+          </div>
+        </div>
+        <div class="sc-panel">
+          <div class="sc-panel-hd"><span class="sc-panel-hd-icon">🔬</span>Cunha Framework — Step-by-Step</div>
+          <div class="cmap-lg">
+            <div class="cmap-lg-title">Six-Step Logic Applied to This Case</div>
+            <div class="cmap-lg-row"><div class="cmap-lg-key">Site</div><div class="cmap-lg-val">Upper UTI + bacteremia — urosepsis. STAT renal US to exclude obstruction (infected obstructed kidney = urologic/IR emergency requiring urgent drainage).</div></div>
+            <div class="cmap-lg-row"><div class="cmap-lg-key">Pathogen</div><div class="cmap-lg-val">NH + DM + prior abx + Foley → ESBL <em>E. coli/Klebsiella</em>, <em>Enterococcus faecalis/faecium</em>, <em>Pseudomonas</em> possible. Cephalosporins cannot cover ESBL or <em>Enterococcus</em>.</div></div>
+            <div class="cmap-lg-row"><div class="cmap-lg-key">Spectrum</div><div class="cmap-lg-val"><strong>Meropenem</strong> (ESBL + broad GNR) ± <strong>vancomycin</strong> if <em>Enterococcus</em> risk (healthcare device, indwelling Foley). Do not use cephalosporin or FQ empirically — ESBL resistance anticipated.</div></div>
+            <div class="cmap-lg-row"><div class="cmap-lg-key">PK / PD</div><div class="cmap-lg-val">IV only in septic shock — PO route inappropriate until hemodynamically stable. Meropenem achieves therapeutic urinary + plasma concentrations. IV-to-PO transition only after blood cultures cleared and BP stable.</div></div>
+            <div class="cmap-lg-row"><div class="cmap-lg-key">Host</div><div class="cmap-lg-val"><strong>Urgently check eGFR</strong>: elderly + T2DM nephropathy → meropenem dose-adjust (eGFR 10–25: 500mg q12h). Vancomycin: load 25–30mg/kg × 1, then AUC-guided. Aggressive IV fluid resuscitation (30mL/kg crystalloid, reassess).</div></div>
+            <div class="cmap-lg-row"><div class="cmap-lg-key">De-escalate</div><div class="cmap-lg-val">Cx at 48h: if ESBL <em>E. coli</em> susceptible to ceftriaxone (tricky — confirm with ID/pharmacy) → narrow; if susceptible to FQ → IV→PO switch once stable. Total 14d for bacteremic UTI; duration from first negative blood culture.</div></div>
+          </div>
+        </div>
+        <div class="sc-panel">
+          <div class="sc-panel-hd"><span class="sc-panel-hd-icon">🔄</span>Circumstance Pivot</div>
+          <div class="pivot-full">
+            <div class="pivot-full-box amber">
+              <span class="pivot-full-lbl">If Culture Results Change →</span>
+              <div class="pivot-full-if">Blood and urine cultures grow <em>Enterococcus faecium</em> — VRE confirmed</div>
+              <div class="pivot-full-step">Step 3 (Spectrum) collapses · VRE is resistant to β-lactams, aminoglycosides, and vancomycin by definition</div>
+              <div class="pivot-full-then">Meropenem has <strong>no Enterococcus activity</strong>. Vancomycin is inactive against VRE by definition. Both must be changed.<br><br><strong>First-line: Linezolid</strong> 600mg IV q12h — excellent VRE faecium activity; 100% oral bioavailability enables early IV→PO switch once stable.<br><br><strong>Alternative:</strong> Daptomycin 8–10mg/kg q24h (high-dose for serious VRE; dose-adjust for eGFR &lt;30 → q48h).<br><br>Contact precautions; VRE screen protocol. ID consult. Minimum 14d from first negative blood culture.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════ CASE C-A: Community Meningitis ══════════════ -->
+  <div class="slide" id="sc-cns-a">
+    <div class="single-case-slide">
+      <div class="case-header">
+        <div class="case-header-left">
+          <div class="case-syndrome-icon">🧠</div>
+          <div>
+            <div class="case-syndrome-name">CNS Infection — Case 1 of 2</div>
+            <div class="case-syndrome-sub">Bacterial Meningitis · Community-Onset, Young Adult, Petechiae</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:14px">
+          <div class="case-seq-badge"><span class="case-seq-pip active"></span><span class="case-seq-pip"></span> Community → Device</div>
+          <div class="case-header-badge">Case Application · Steps 1–6</div>
+        </div>
+      </div>
+      <div class="sc-body">
+        <div class="sc-panel">
+          <div class="sc-panel-hd"><span class="sc-panel-hd-icon">👤</span>Patient Vignette</div>
+          <div class="vignette-lg"><strong>21-year-old man, college student, previously healthy.</strong> 12-hour acute illness: sudden-onset severe headache ("worst of life"), fever 39.6 °C, nuchal rigidity, photophobia. GCS 14 (confused). Non-blanching petechiae on trunk and bilateral lower extremities. CT head: no mass lesion. LP planned — empiric treatment started immediately before LP result.</div>
+          <div class="cue-label">Key Clinical Cues — Why This Cannot Wait</div>
+          <div class="cue-list">
+            <div class="cue-item"><div class="cue-marker">①</div><span><strong>Non-blanching petechiae</strong> — classic meningococcemia pattern; every hour without antibiotics increases mortality approximately 10%</span></div>
+            <div class="cue-item"><div class="cue-marker">②</div><span><strong>Age 21 + college dormitory</strong> — <em>N. meningitidis</em> serogroup B/C highest probability; close contacts require chemoprophylaxis within 24h</span></div>
+            <div class="cue-item"><div class="cue-marker">③</div><span><strong>Empiric before LP</strong> — do not delay antibiotics for LP; give treatment first, then LP within 30–60 min. CSF cultures remain positive for hours after first dose.</span></div>
+            <div class="cue-item"><div class="cue-marker">④</div><span><strong>Dexamethasone timing</strong> — must be given <em>with or before</em> first antibiotic dose; neurologic benefit is lost if given afterward</span></div>
+          </div>
+        </div>
+        <div class="sc-panel">
+          <div class="sc-panel-hd"><span class="sc-panel-hd-icon">🔬</span>Cunha Framework — Step-by-Step</div>
+          <div class="cmap-lg">
+            <div class="cmap-lg-title">Six-Step Logic Applied to This Case</div>
+            <div class="cmap-lg-row"><div class="cmap-lg-key">Site</div><div class="cmap-lg-val">CNS / meninges — bacterial meningitis; petechiae pattern strongly suggests meningococcemia; treat as meningococcal emergency until proven otherwise</div></div>
+            <div class="cmap-lg-row"><div class="cmap-lg-key">Pathogen</div><div class="cmap-lg-val">Age 21 + community + petechiae → <em>N. meningitidis</em> most likely; <em>S. pneumoniae</em> also possible. Vancomycin added until pneumococcal susceptibility confirmed (covers PCN-R strains).</div></div>
+            <div class="cmap-lg-row"><div class="cmap-lg-key">Spectrum</div><div class="cmap-lg-val"><strong>Ceftriaxone 2g q12h</strong> (meningeal penetration with inflamed BBB) + <strong>vancomycin</strong> (PCN-R pneumococcus coverage) + <strong>dexamethasone 0.15mg/kg q6h × 4d</strong> concurrent with first dose.</div></div>
+            <div class="cmap-lg-row"><div class="cmap-lg-key">PK / PD</div><div class="cmap-lg-val">Ceftriaxone: bactericidal CSF concentrations when meninges inflamed. Dexamethasone ↓ TNF-α/IL-1β → ↓ hearing loss (NNT ~8), ↓ unfavorable neurologic outcomes. Does not impair ceftriaxone penetration at standard doses.</div></div>
+            <div class="cmap-lg-row"><div class="cmap-lg-key">Host</div><div class="cmap-lg-val">Young, healthy; confirm β-lactam allergy history. <strong>Public health notification required</strong> for suspected meningococcal disease. Household/intimate contacts → rifampin 600mg BID × 2d or ciprofloxacin 500mg PO × 1 dose within 24h.</div></div>
+            <div class="cmap-lg-row"><div class="cmap-lg-key">De-escalate</div><div class="cmap-lg-val">CSF cx: <em>N. meningitidis</em> PCN-susceptible → de-escalate to <strong>PCN G 4MU q4h × 7d</strong>; discontinue vancomycin. Meningococcal meningitis: 7-day total course. Complete 4-day dexamethasone regardless.</div></div>
+          </div>
+        </div>
+        <div class="sc-panel">
+          <div class="sc-panel-hd"><span class="sc-panel-hd-icon">🔄</span>Circumstance Pivot</div>
+          <div class="pivot-full">
+            <div class="pivot-full-box">
+              <span class="pivot-full-lbl">If One Variable Changes →</span>
+              <div class="pivot-full-if">Age 68, prednisone 20mg/day × 8 months for PMR — same meningitis presentation</div>
+              <div class="pivot-full-step">Step 2 adds <em>Listeria monocytogenes</em> · Step 3 must add ampicillin · ceftriaxone has zero Listeria activity</div>
+              <div class="pivot-full-then">Chronic corticosteroids suppress T-cell immunity → intracellular pathogens emerge. <em>Listeria monocytogenes</em> is a serious contender at age &gt;50 or with cell-mediated immune defect.<br><br><strong>Add: ampicillin 2g IV q4h</strong> to ceftriaxone + vancomycin. Ceftriaxone does not cover <em>Listeria</em> — never assume cephalosporins cover it.<br><br>PCN anaphylaxis → <strong>TMP-SMX 5mg/kg IV q6–12h</strong> substitutes for ampicillin against <em>Listeria</em>.<br><br><em>Dexamethasone:</em> Give with or before first antibiotic dose; some ID authorities give the first antibiotic concurrently rather than after dex to preserve CSF penetration — evidence is not definitive.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════ CASE C-B: VP Shunt Meningitis ══════════════ -->
+  <div class="slide" id="sc-cns-b">
+    <div class="single-case-slide">
+      <div class="case-header">
+        <div class="case-header-left">
+          <div class="case-syndrome-icon">🧠</div>
+          <div>
+            <div class="case-syndrome-name">CNS Infection — Case 2 of 2</div>
+            <div class="case-syndrome-sub">Post-Neurosurgical Meningitis · VP Shunt Infection, Device-Associated</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:14px">
+          <div class="case-seq-badge"><span class="case-seq-pip"></span><span class="case-seq-pip active"></span> Community → Device</div>
+          <div class="case-header-badge">Case Application · Steps 1–6</div>
+        </div>
+      </div>
+      <div class="sc-body">
+        <div class="sc-panel">
+          <div class="sc-panel-hd"><span class="sc-panel-hd-icon">👤</span>Patient Vignette</div>
+          <div class="vignette-lg"><strong>58-year-old man, s/p VP shunt revision 5 days prior</strong> for normal-pressure hydrocephalus. New fever 38.7 °C, progressive headache, declining mental status (GCS 13). LP via shunt reservoir: WBC 840/μL (88% PMN), glucose 22 mg/dL (serum 110), protein 184 mg/dL. Gram stain: Gram-positive cocci in clusters (preliminary). Blood cultures × 2 drawn.</div>
+          <div class="cue-label">Key Clinical Cues — Device Changes the Pathogen Set</div>
+          <div class="cue-list">
+            <div class="cue-item"><div class="cue-marker">①</div><span><strong>VP shunt + recent revision</strong> — <em>S. epidermidis</em> (CoNS) is the most common shunt pathogen (40–50%); biofilm formation is universal and renders in-situ cure essentially impossible</span></div>
+            <div class="cue-item"><div class="cue-marker">②</div><span><strong>GPC on Gram stain</strong> — narrows to staphylococci; both CoNS and MRSA must be covered empirically with vancomycin</span></div>
+            <div class="cue-item"><div class="cue-marker">③</div><span><strong>Shunt removal is mandatory</strong> — hardware must be externalized or removed before antibiotics can sterilize CSF; source control is non-negotiable</span></div>
+            <div class="cue-item"><div class="cue-marker">④</div><span><strong>CSF glucose 22 vs. serum 110</strong> — severe bacterial meningitis pattern; high bacterial burden; aggressive treatment required without delay</span></div>
+          </div>
+        </div>
+        <div class="sc-panel">
+          <div class="sc-panel-hd"><span class="sc-panel-hd-icon">🔬</span>Cunha Framework — Step-by-Step</div>
+          <div class="cmap-lg">
+            <div class="cmap-lg-title">Six-Step Logic Applied to This Case</div>
+            <div class="cmap-lg-row"><div class="cmap-lg-key">Site</div><div class="cmap-lg-val">CSF / CNS — device-associated healthcare-acquired meningitis. <strong>Source control = shunt externalization or removal</strong> is non-negotiable. Antibiotics alone cannot sterilize biofilm.</div></div>
+            <div class="cmap-lg-row"><div class="cmap-lg-key">Pathogen</div><div class="cmap-lg-val">VP shunt + GPC clusters on Gram stain → <em>S. epidermidis</em> (CoNS, most common) or MRSA; GNRs also possible post-neurosurgically (cover with second agent).</div></div>
+            <div class="cmap-lg-row"><div class="cmap-lg-key">Spectrum</div><div class="cmap-lg-val"><strong>Vancomycin</strong> (CoNS/MRSA) + <strong>cefepime or meropenem</strong> (GNR coverage). Add rifampin 600mg PO daily for CoNS biofilm activity once organism identified — never as monotherapy.</div></div>
+            <div class="cmap-lg-row"><div class="cmap-lg-key">PK / PD</div><div class="cmap-lg-val">Vancomycin CSF penetration poor even with inflammation; if failing → <strong>intrathecal vancomycin 5–20mg/day</strong> (neurosurgery + ID decision). Rifampin: excellent CNS penetration. Cefepime crosses BBB at standard doses.</div></div>
+            <div class="cmap-lg-row"><div class="cmap-lg-key">Host</div><div class="cmap-lg-val">Check renal function urgently (vancomycin nephrotoxicity). Rifampin: potent CYP3A4/2C9/2C19 inducer — review all concurrent medications before starting. Neurosurgery required for hardware management.</div></div>
+            <div class="cmap-lg-row"><div class="cmap-lg-key">De-escalate</div><div class="cmap-lg-val">Culture: <em>S. epidermidis</em> rifampin-susceptible → vancomycin + rifampin combination; 10–14d IV after shunt removal. Repeat LP to confirm CSF sterilization before considering shunt re-implantation.</div></div>
+          </div>
+        </div>
+        <div class="sc-panel">
+          <div class="sc-panel-hd"><span class="sc-panel-hd-icon">🔄</span>Circumstance Pivot</div>
+          <div class="pivot-full">
+            <div class="pivot-full-box red">
+              <span class="pivot-full-lbl">If Culture Returns a Worst-Case Organism →</span>
+              <div class="pivot-full-if">CSF culture: carbapenem-resistant <em>Acinetobacter baumannii</em> (CRAB)</div>
+              <div class="pivot-full-step">Steps 3 & 4 collapse · all standard CNS-active agents are ineffective; salvage therapy required</div>
+              <div class="pivot-full-then">Meropenem, cefepime, and vancomycin all inactive against CRAB. This is a therapeutic crisis.<br><br><strong>Salvage options:</strong><br>• <em>Polymyxin B or colistin</em> IV — poor intrinsic CSF penetration; systemic therapy may be insufficient alone.<br>• <strong>Intraventricular colistin 10mg/day</strong> — requires neurosurgical EVD or reservoir placement; only route achieving adequate CSF concentrations.<br>• High-dose ampicillin-sulbactam if sulbactam MIC ≤4 (sulbactam has intrinsic CRAB activity).<br><br>Shunt removal non-negotiable. <em>Mandatory ID specialist + clinical pharmacist + neurosurgery team consultation.</em></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════ CASE S-A: Non-Purulent Cellulitis ══════════════ -->
+  <div class="slide" id="sc-ssti-a">
+    <div class="single-case-slide">
+      <div class="case-header">
+        <div class="case-header-left">
+          <div class="case-syndrome-icon">🦴</div>
+          <div>
+            <div class="case-syndrome-name">Skin &amp; Soft Tissue — Case 1 of 2</div>
+            <div class="case-syndrome-sub">Non-Purulent Cellulitis · Healthy Host, No Abscess</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:14px">
+          <div class="case-seq-badge"><span class="case-seq-pip active"></span><span class="case-seq-pip"></span> Cellulitis → Osteomyelitis</div>
+          <div class="case-header-badge">Case Application · Steps 1–6</div>
+        </div>
+      </div>
+      <div class="sc-body">
+        <div class="sc-panel">
+          <div class="sc-panel-hd"><span class="sc-panel-hd-icon">👤</span>Patient Vignette</div>
+          <div class="vignette-lg"><strong>45-year-old man, healthy, no comorbidities.</strong> Two-day spreading erythema, warmth, and tenderness of the right lower leg. No puncture wound, no ulceration, no exudate, no fluctuance on palpation. T 37.8 °C, WBC 12.4 K. No lymphangitic streaking. Erythema borders marked at presentation. No recent antibiotics; no healthcare contact.</div>
+          <div class="cue-label">Key Clinical Cues — Purulence Determines Pathogen</div>
+          <div class="cue-list">
+            <div class="cue-item"><div class="cue-marker">①</div><span><strong>Non-purulent — no abscess, no exudate</strong> — IDSA 2014 SSTI classification: non-purulent = GAS-dominant; MRSA coverage not routinely indicated</span></div>
+            <div class="cue-item"><div class="cue-marker">②</div><span><strong>No portal of entry identified</strong> — most non-purulent cellulitis enters via microscopic fissures; identify and treat underlying tinea pedis or eczema to prevent recurrence</span></div>
+            <div class="cue-item"><div class="cue-marker">③</div><span><strong>Mark erythema borders at presentation</strong> — allows objective 24–48h response assessment; failure to mark is a missed clinical tool</span></div>
+            <div class="cue-item"><div class="cue-marker">④</div><span><strong>Rule out mimics</strong> — stasis dermatitis, DVT, lipodermatosclerosis frequently misdiagnosed as cellulitis; consider LENI if unilateral leg edema</span></div>
+          </div>
+        </div>
+        <div class="sc-panel">
+          <div class="sc-panel-hd"><span class="sc-panel-hd-icon">🔬</span>Cunha Framework — Step-by-Step</div>
+          <div class="cmap-lg">
+            <div class="cmap-lg-title">Six-Step Logic Applied to This Case</div>
+            <div class="cmap-lg-row"><div class="cmap-lg-key">Site</div><div class="cmap-lg-val">Skin / dermis — non-purulent cellulitis; no deep tissue involvement, no systemic toxicity → outpatient PO therapy appropriate. Admit criteria: failed outpatient Rx, systemic toxicity, immunocompromise, facial cellulitis.</div></div>
+            <div class="cmap-lg-row"><div class="cmap-lg-key">Pathogen</div><div class="cmap-lg-val">Non-purulent cellulitis → <em>Group A Streptococcus</em> (&gt;70% per IDSA evidence review). <em>S. aureus</em> less common without purulence. CA-MRSA is unlikely in non-purulent cellulitis in a healthy host.</div></div>
+            <div class="cmap-lg-row"><div class="cmap-lg-key">Spectrum</div><div class="cmap-lg-val">GAS-targeted: <strong>cephalexin 500mg QID</strong> or dicloxacillin 500mg QID. <strong>No MRSA coverage needed</strong> for non-purulent cellulitis (IDSA SSTI Guidelines 2014). FQs are spectrum excess here.</div></div>
+            <div class="cmap-lg-row"><div class="cmap-lg-key">PK / PD</div><div class="cmap-lg-val">Cephalexin achieves adequate dermis/soft-tissue concentrations. β-lactam time-dependent killing: QID dosing (q6h) maintains T&gt;MIC. ~90% oral bioavailability. No IV needed for uncomplicated non-purulent cellulitis.</div></div>
+            <div class="cmap-lg-row"><div class="cmap-lg-key">Host</div><div class="cmap-lg-val">Healthy host. PCN allergy → clindamycin 300–450mg TID. True PCN anaphylaxis → TMP-SMX (GAS coverage less reliable) or consult. Elevate extremity; treat tinea pedis with topical antifungal.</div></div>
+            <div class="cmap-lg-row"><div class="cmap-lg-key">De-escalate</div><div class="cmap-lg-val"><strong>5-day course</strong> if ≥24h improvement at 48h (IDSA). If no improvement at 48–72h → reassess for hidden abscess, DVT, alternative diagnosis, or need for IV admission. Culture not routinely indicated.</div></div>
+          </div>
+        </div>
+        <div class="sc-panel">
+          <div class="sc-panel-hd"><span class="sc-panel-hd-icon">🔄</span>Circumstance Pivot</div>
+          <div class="pivot-full">
+            <div class="pivot-full-box">
+              <span class="pivot-full-lbl">If One Variable Changes →</span>
+              <div class="pivot-full-if">IVDU patient, same leg — now with fluctuant nodule and crusted central eschar</div>
+              <div class="pivot-full-step">Step 2 (Pathogen) pivots · purulence + IVDU = CA-MRSA until proven otherwise</div>
+              <div class="pivot-full-then">Purulence changes the dominant pathogen from GAS to <em>S. aureus</em>, specifically CA-MRSA. In IVDU, direct skin inoculation with nasal/skin flora is the mechanism.<br><br><strong>Primary intervention: Incision &amp; drainage (I&amp;D)</strong> — I&amp;D alone is curative for small uncomplicated abscesses (&lt;2cm); antibiotics are adjunctive, not primary therapy.<br><br><strong>Send pus for culture.</strong> Add <strong>TMP-SMX DS 1–2 tabs BID × 5d</strong> or doxycycline 100mg BID × 5d. Cephalexin alone is inadequate for CA-MRSA.<br><br><em>Blood cultures mandatory in febrile IVDU</em> — endocarditis risk is substantial; if bacteremic → minimum 2wk IV and echocardiography.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════ CASE S-B: Diabetic Foot OM ══════════════ -->
+  <div class="slide" id="sc-ssti-b">
+    <div class="single-case-slide">
+      <div class="case-header">
+        <div class="case-header-left">
+          <div class="case-syndrome-icon">🦴</div>
+          <div>
+            <div class="case-syndrome-name">Skin, Soft Tissue &amp; Bone — Case 2 of 2</div>
+            <div class="case-syndrome-sub">Diabetic Foot Osteomyelitis · Polymicrobial, Prior Treatment Failure</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:14px">
+          <div class="case-seq-badge"><span class="case-seq-pip"></span><span class="case-seq-pip active"></span> Cellulitis → Osteomyelitis</div>
+          <div class="case-header-badge">Case Application · Steps 1–6</div>
+        </div>
+      </div>
+      <div class="sc-body">
+        <div class="sc-panel">
+          <div class="sc-panel-hd"><span class="sc-panel-hd-icon">👤</span>Patient Vignette</div>
+          <div class="vignette-lg"><strong>64-year-old woman, T2DM (HbA1c 11.2%), peripheral neuropathy, PAD.</strong> Chronic right plantar ulcer over 2nd metatarsal × 6 weeks — probe-to-bone positive. Anaerobic odor, purulent discharge. T 38.6 °C, WBC 17.2 K, ESR 94, CRP 148. Plain XR: cortical erosion and periosteal reaction at 2nd metatarsal head. Failed 2-week outpatient amoxicillin-clavulanate. No prior bone cultures available.</div>
+          <div class="cue-label">Key Clinical Cues — Polymicrobial, Failing Prior Therapy</div>
+          <div class="cue-list">
+            <div class="cue-item"><div class="cue-marker">①</div><span><strong>Probe-to-bone positive</strong> — PPV ~89% for osteomyelitis; bone biopsy via clean (non-ulcer) skin margin is gold standard and should be obtained before escalating antibiotics</span></div>
+            <div class="cue-item"><div class="cue-marker">②</div><span><strong>Failed amox-clav</strong> — β-lactamase inhibitor combination insufficient; do not re-challenge with same class; assume resistant organisms or inadequate spectrum</span></div>
+            <div class="cue-item"><div class="cue-marker">③</div><span><strong>Anaerobic odor + chronic ulcer + T2DM</strong> — polymicrobial infection with anaerobes highly probable; GNRs including ESBL possible with chronicity and prior antibiotics</span></div>
+            <div class="cue-item"><div class="cue-marker">④</div><span><strong>HbA1c 11.2% + PAD</strong> — poor glycemic control and vascular insufficiency are independent predictors of treatment failure; surgical debridement + glycemic optimization are mandatory adjuncts</span></div>
+          </div>
+        </div>
+        <div class="sc-panel">
+          <div class="sc-panel-hd"><span class="sc-panel-hd-icon">🔬</span>Cunha Framework — Step-by-Step</div>
+          <div class="cmap-lg">
+            <div class="cmap-lg-title">Six-Step Logic Applied to This Case</div>
+            <div class="cmap-lg-row"><div class="cmap-lg-key">Site</div><div class="cmap-lg-val">Bone (osteomyelitis) + deep soft tissue. <strong>Bone biopsy via clean skin margin</strong> is gold standard — surface swab cultures from ulcer are unreliable and must not guide therapy. Vascular surgery/podiatry/ortho consult for debridement.</div></div>
+            <div class="cmap-lg-row"><div class="cmap-lg-key">Pathogen</div><div class="cmap-lg-val">Polymicrobial: <em>S. aureus</em> (incl. MRSA) + GNR (<em>E. coli</em>, <em>Klebsiella</em>, <em>Pseudomonas</em> if chronic/macerated) + anaerobes (<em>Bacteroides</em>, <em>Peptostreptococcus</em>). Amox-clav failure → MRSA and ESBL GNR now prominent concerns.</div></div>
+            <div class="cmap-lg-row"><div class="cmap-lg-key">Spectrum</div><div class="cmap-lg-val"><strong>Pip-tazo 4.5g q8h IV</strong> (polymicrobial, anaerobic coverage) + <strong>vancomycin</strong> (MRSA). If prior ESBL isolates or ICU-level severity → upgrade to <strong>meropenem + vancomycin</strong>. Do not re-use amox-clav.</div></div>
+            <div class="cmap-lg-row"><div class="cmap-lg-key">PK / PD</div><div class="cmap-lg-val">Bone penetration essential. Culture-guided de-escalation to: FQ + rifampin (MSSA/susceptible GNR — excellent bone penetration), clindamycin (GPC/anaerobes), TMP-SMX (MRSA OPAT). Rifampin adds biofilm-penetrating activity — always pair with companion agent; monotherapy rapidly selects resistance.</div></div>
+            <div class="cmap-lg-row"><div class="cmap-lg-key">Host</div><div class="cmap-lg-val"><strong>Check eGFR urgently</strong> (DM nephropathy). Vancomycin: AUC-guided, load 25mg/kg × 1. Glycemic optimization (target glucose 140–180 inpatient) essential for wound healing. Vascular surgery evaluation for PAD (revascularization before debridement if indicated). Offloading device required.</div></div>
+            <div class="cmap-lg-row"><div class="cmap-lg-key">De-escalate</div><div class="cmap-lg-val">Bone biopsy cx drives duration: <strong>2–5 days</strong> if infected bone fully resected; <strong>6 weeks</strong> if residual infected/devascularized bone remains. OPAT with high-bioavailability PO agent (FQ, linezolid, TMP-SMX) after 1–2wk IV induction.</div></div>
+          </div>
+        </div>
+        <div class="sc-panel">
+          <div class="sc-panel-hd"><span class="sc-panel-hd-icon">🔄</span>Circumstance Pivot</div>
+          <div class="pivot-full">
+            <div class="pivot-full-box amber">
+              <span class="pivot-full-lbl">If Bone Biopsy Narrows the Diagnosis →</span>
+              <div class="pivot-full-if">Bone biopsy culture: MSSA only — no GNRs, no anaerobes, no MRSA</div>
+              <div class="pivot-full-step">Step 3 pivots from polymicrobial empiric → MSSA-targeted monotherapy · all other agents should be stopped</div>
+              <div class="pivot-full-then">Polymicrobial empiric coverage is no longer justified once the true pathogen is known. Discontinue pip-tazo (or meropenem) and vancomycin entirely.<br><br><strong>De-escalate to IV cefazolin 2g q8h</strong> (or nafcillin 2g q4h) — both superior to vancomycin for MSSA bone infections (lower treatment failure, better penetration). After 1–2 weeks IV, oral step-down to:<br>• <strong>Dicloxacillin + rifampin</strong>, or<br>• <strong>TMP-SMX DS + rifampin</strong> (if PCN intolerant).<br><br>Complete 6-week total course from last debridement. <em>Rifampin must never be given alone — resistance emerges within days.</em></div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
