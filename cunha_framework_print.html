@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>The Cunha Framework — Print Version</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+  /* ── Print directives ── */
+  @page {
+    size: 11in 8.5in;
+    margin: 0;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy:       #0b1020;
+    --navy-mid:   #131d31;
+    --navy-card:  #192540;
+    --gold:       #c9993a;
+    --gold-lt:    #e8b84b;
+    --gold-pale:  #f3d98a;
+    --cream:      #ede7d3;
+    --slate:      #7a9ab4;
+    --slate-lt:   #a8c0d0;
+    --body-text:  #c4d0de;
+    --teal:       #1abc9c;
+    --pink:       #e07098;
+    --purple:     #9b8fe8;
+    --green:      #2ecc71;
+    --blue:       #4da6d9;
+    --yellow:     #f0d060;
+    --white:      #ffffff;
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #1a1a2e;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* ── Page shell ── */
+  .page {
+    width: 11in;
+    height: 8.5in;
+    overflow: hidden;
+    page-break-after: always;
+    background: var(--navy);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+  .page:last-child { page-break-after: avoid; }
+
+  /* ─── PAGE 1: TITLE ─── */
+  .title-page {
+    background: var(--navy);
+    align-items: stretch;
+    flex-direction: row;
+  }
+  .title-left {
+    width: 5.5in;
+    padding: 0.65in 0.6in 0.5in 0.6in;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    border-right: 1px solid rgba(201,153,58,0.18);
+  }
+  .title-left::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 100% 80% at 10% 50%, rgba(201,153,58,0.07) 0%, transparent 65%),
+      linear-gradient(135deg, #0b1020 0%, #111929 100%);
+  }
+  .title-left-inner { position: relative; z-index: 1; }
+  .t-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 7.5pt;
+    letter-spacing: 0.24em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 14pt;
+  }
+  .t-main {
+    font-family: 'Playfair Display', serif;
+    font-size: 44pt;
+    font-weight: 700;
+    color: var(--cream);
+    line-height: 1.05;
+    margin-bottom: 8pt;
+  }
+  .t-main em { font-style: italic; color: var(--gold-lt); }
+  .t-sub {
+    font-family: 'Playfair Display', serif;
+    font-size: 13pt;
+    font-style: italic;
+    color: var(--slate-lt);
+    margin-bottom: 22pt;
+    line-height: 1.4;
+  }
+  .t-divider {
+    width: 60pt;
+    height: 1.5pt;
+    background: linear-gradient(90deg, var(--gold), transparent);
+    margin-bottom: 18pt;
+  }
+  .t-desc {
+    font-size: 9pt;
+    color: var(--slate);
+    line-height: 1.75;
+  }
+  .t-desc strong { color: var(--slate-lt); }
+  .t-badge {
+    display: inline-block;
+    margin-top: 18pt;
+    padding: 5pt 11pt;
+    border: 1pt solid rgba(201,153,58,0.4);
+    font-family: 'DM Mono', monospace;
+    font-size: 7pt;
+    letter-spacing: 0.18em;
+    color: var(--gold);
+    text-transform: uppercase;
+  }
+
+  .title-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0.5in 0.55in;
+    gap: 10pt;
+  }
+  .step-preview-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 14pt;
+    padding: 10pt 14pt;
+    background: var(--navy-mid);
+    border-left: 2.5pt solid var(--gold);
+  }
+  .sp-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 18pt;
+    font-weight: 700;
+    color: rgba(201,153,58,0.3);
+    line-height: 1;
+    min-width: 18pt;
+  }
+  .sp-body { flex: 1; }
+  .sp-q {
+    font-family: 'DM Mono', monospace;
+    font-size: 7.5pt;
+    color: var(--gold);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 3pt;
+  }
+  .sp-a {
+    font-size: 8pt;
+    color: var(--body-text);
+    line-height: 1.45;
+  }
+
+  /* border-left colors per step */
+  .sr1 { border-left-color: var(--gold-lt); }
+  .sr2 { border-left-color: var(--blue); }
+  .sr3 { border-left-color: var(--purple); }
+  .sr4 { border-left-color: var(--pink); }
+  .sr5 { border-left-color: var(--teal); }
+  .sr6 { border-left-color: var(--yellow); }
+
+  /* ─── STEP PAGE layout ─── */
+  .step-page {
+    flex-direction: row;
+    align-items: stretch;
+  }
+  .step-sidebar {
+    width: 2.35in;
+    background: var(--navy-mid);
+    border-right: 1pt solid rgba(201,153,58,0.14);
+    display: flex;
+    flex-direction: column;
+    padding: 0.38in 0.28in 0.35in 0.3in;
+    position: relative;
+    overflow: hidden;
+  }
+  .sidebar-ghost {
+    position: absolute;
+    bottom: -0.2in;
+    left: -0.15in;
+    font-family: 'Playfair Display', serif;
+    font-size: 90pt;
+    font-weight: 700;
+    line-height: 1;
+    color: rgba(201,153,58,0.055);
+    user-select: none;
+  }
+  .sb-step-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 6.5pt;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 9pt;
+    position: relative;
+    z-index: 1;
+  }
+  .sb-question {
+    font-family: 'Playfair Display', serif;
+    font-size: 15.5pt;
+    font-weight: 600;
+    color: var(--cream);
+    line-height: 1.3;
+    margin-bottom: 14pt;
+    position: relative;
+    z-index: 1;
+  }
+  .sb-divider {
+    width: 36pt;
+    height: 1pt;
+    background: rgba(201,153,58,0.3);
+    margin-bottom: 12pt;
+    position: relative;
+    z-index: 1;
+  }
+  .sb-action {
+    font-family: 'DM Mono', monospace;
+    font-size: 7.5pt;
+    color: var(--slate);
+    line-height: 1.65;
+    position: relative;
+    z-index: 1;
+    flex: 1;
+  }
+  .sb-action em { color: var(--slate-lt); font-style: italic; }
+  .sb-ref {
+    font-family: 'DM Mono', monospace;
+    font-size: 6pt;
+    color: rgba(122,154,180,0.5);
+    position: relative;
+    z-index: 1;
+    margin-top: auto;
+    padding-top: 10pt;
+    line-height: 1.5;
+  }
+
+  /* Right content panel */
+  .step-content {
+    flex: 1;
+    padding: 0.28in 0.35in 0.28in 0.3in;
+    display: flex;
+    flex-direction: column;
+    gap: 7pt;
+    overflow: hidden;
+    background: var(--navy);
+  }
+  .content-top-bar {
+    padding-bottom: 7pt;
+    border-bottom: 1pt solid rgba(201,153,58,0.1);
+    margin-bottom: 2pt;
+  }
+  .ct-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 14pt;
+    font-weight: 700;
+    color: var(--cream);
+    line-height: 1.15;
+  }
+  .ct-sub {
+    font-size: 7.5pt;
+    color: var(--slate);
+    font-style: italic;
+    margin-top: 3pt;
+  }
+
+  /* Card grid */
+  .card-grid {
+    display: grid;
+    gap: 6pt;
+  }
+  .grid-2 { grid-template-columns: 1fr 1fr; }
+  .grid-3 { grid-template-columns: 1fr 1fr 1fr; }
+  .grid-1 { grid-template-columns: 1fr; }
+
+  .card {
+    background: var(--navy-card);
+    border: 0.75pt solid rgba(201,153,58,0.1);
+    border-left: 2.5pt solid var(--gold);
+    padding: 7pt 9pt;
+    overflow: hidden;
+  }
+  .card.c-blue  { border-left-color: var(--blue); }
+  .card.c-purple { border-left-color: var(--purple); }
+  .card.c-pink  { border-left-color: var(--pink); }
+  .card.c-teal  { border-left-color: var(--teal); }
+  .card.c-green { border-left-color: var(--green); }
+  .card.c-yellow { border-left-color: var(--yellow); }
+
+  .card-hd {
+    font-family: 'DM Mono', monospace;
+    font-size: 6pt;
+    letter-spacing: 0.16em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 5pt;
+  }
+  .card.c-blue  .card-hd { color: var(--blue); }
+  .card.c-purple .card-hd { color: var(--purple); }
+  .card.c-pink  .card-hd { color: var(--pink); }
+  .card.c-teal  .card-hd { color: var(--teal); }
+  .card.c-green .card-hd { color: var(--green); }
+  .card.c-yellow .card-hd { color: var(--yellow); }
+
+  .card-body {
+    font-size: 7.5pt;
+    color: var(--body-text);
+    line-height: 1.6;
+  }
+  .card-body ul { list-style: none; }
+  .card-body li { padding: 1.5pt 0 1.5pt 10pt; position: relative; }
+  .card-body li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    font-size: 6.5pt;
+    top: 3.5pt;
+  }
+  .card-body em { font-style: italic; color: var(--slate-lt); }
+  .card-body strong { color: var(--cream); font-weight: 500; }
+
+  /* Tables */
+  .tbl {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 7pt;
+  }
+  .tbl th {
+    text-align: left;
+    font-family: 'DM Mono', monospace;
+    font-size: 6pt;
+    letter-spacing: 0.12em;
+    color: var(--gold);
+    text-transform: uppercase;
+    padding: 4pt 7pt;
+    border-bottom: 0.75pt solid rgba(201,153,58,0.25);
+  }
+  .tbl td {
+    padding: 4pt 7pt;
+    border-bottom: 0.5pt solid rgba(255,255,255,0.05);
+    line-height: 1.4;
+    color: var(--body-text);
+    vertical-align: top;
+  }
+  .tbl tr:last-child td { border-bottom: none; }
+  .tbl em { font-style: italic; color: var(--slate-lt); }
+
+  /* Pearl box */
+  .pearl {
+    background: rgba(201,153,58,0.06);
+    border: 0.75pt solid rgba(201,153,58,0.28);
+    padding: 7pt 10pt;
+    font-size: 7.5pt;
+    color: var(--cream);
+    line-height: 1.6;
+  }
+  .pearl em { font-style: italic; }
+  .pearl-lbl {
+    display: block;
+    font-family: 'DM Mono', monospace;
+    font-size: 6pt;
+    letter-spacing: 0.18em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 4pt;
+  }
+
+  /* ─── PAGE 8: SUMMARY ─── */
+  .summary-page {
+    flex-direction: column;
+    padding: 0.32in 0.4in 0.28in;
+  }
+  .sum-header { text-align: center; margin-bottom: 14pt; }
+  .sum-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 7pt;
+    letter-spacing: 0.22em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 5pt;
+  }
+  .sum-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 20pt;
+    font-weight: 700;
+    color: var(--cream);
+  }
+  .sum-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 9pt;
+    flex: 1;
+  }
+  .sum-card {
+    background: var(--navy-mid);
+    border: 0.75pt solid rgba(201,153,58,0.12);
+    border-top: 2.5pt solid var(--gold);
+    padding: 9pt 11pt;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+  }
+  .sum-card.s2 { border-top-color: var(--blue); }
+  .sum-card.s3 { border-top-color: var(--purple); }
+  .sum-card.s4 { border-top-color: var(--pink); }
+  .sum-card.s5 { border-top-color: var(--teal); }
+  .sum-card.s6 { border-top-color: var(--yellow); }
+
+  .sum-ghost {
+    position: absolute;
+    top: 2pt;
+    right: 7pt;
+    font-family: 'Playfair Display', serif;
+    font-size: 32pt;
+    font-weight: 700;
+    color: rgba(201,153,58,0.08);
+    line-height: 1;
+  }
+  .sum-lbl {
+    font-family: 'DM Mono', monospace;
+    font-size: 6pt;
+    letter-spacing: 0.18em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 5pt;
+  }
+  .sum-card.s2 .sum-lbl { color: var(--blue); }
+  .sum-card.s3 .sum-lbl { color: var(--purple); }
+  .sum-card.s4 .sum-lbl { color: var(--pink); }
+  .sum-card.s5 .sum-lbl { color: var(--teal); }
+  .sum-card.s6 .sum-lbl { color: var(--yellow); }
+
+  .sum-q {
+    font-family: 'Playfair Display', serif;
+    font-size: 10pt;
+    font-weight: 600;
+    color: var(--cream);
+    line-height: 1.3;
+    margin-bottom: 6pt;
+  }
+  .sum-body {
+    font-size: 7.5pt;
+    color: var(--body-text);
+    line-height: 1.55;
+    flex: 1;
+  }
+  .sum-tags { margin-top: 7pt; display: flex; flex-wrap: wrap; gap: 3pt; }
+  .tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 6pt;
+    padding: 2pt 5pt;
+    background: rgba(201,153,58,0.1);
+    border: 0.5pt solid rgba(201,153,58,0.25);
+    color: var(--gold);
+    letter-spacing: 0.06em;
+  }
+  .tag.blue   { background: rgba(77,166,217,0.08);  border-color: rgba(77,166,217,0.25);  color: var(--blue); }
+  .tag.purple { background: rgba(155,143,232,0.08); border-color: rgba(155,143,232,0.25); color: var(--purple); }
+  .tag.pink   { background: rgba(224,112,152,0.08); border-color: rgba(224,112,152,0.25); color: var(--pink); }
+  .tag.teal   { background: rgba(26,188,156,0.08);  border-color: rgba(26,188,156,0.25);  color: var(--teal); }
+  .tag.yellow { background: rgba(240,208,96,0.08);  border-color: rgba(240,208,96,0.25);  color: var(--yellow); }
+
+  .sum-footer {
+    margin-top: 12pt;
+    text-align: center;
+    font-family: 'DM Mono', monospace;
+    font-size: 6.5pt;
+    color: rgba(122,154,180,0.45);
+    letter-spacing: 0.07em;
+  }
+
+  /* ── Footer bar on step pages ── */
+  .step-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 18pt;
+    background: rgba(10,15,30,0.7);
+    border-top: 0.5pt solid rgba(201,153,58,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 14pt;
+  }
+  .footer-left {
+    font-family: 'DM Mono', monospace;
+    font-size: 6pt;
+    color: rgba(122,154,180,0.4);
+    letter-spacing: 0.1em;
+  }
+  .footer-right {
+    font-family: 'DM Mono', monospace;
+    font-size: 6pt;
+    color: rgba(201,153,58,0.35);
+    letter-spacing: 0.1em;
+  }
+
+  /* Screen-only: page separator */
+  @media screen {
+    body { padding: 0.3in; display: flex; flex-direction: column; gap: 0.25in; }
+    .page { box-shadow: 0 8px 40px rgba(0,0,0,0.6); border-radius: 2px; }
+    .print-hint {
+      text-align: center;
+      font-family: 'DM Mono', monospace;
+      font-size: 9pt;
+      color: #555;
+      padding: 8pt;
+    }
+  }
+  @media print {
+    body { padding: 0; background: var(--navy); }
+    .print-hint { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<p class="print-hint">Print → Save as PDF · Orientation: Landscape · 8.5 × 11 in · Margins: None</p>
+
+<!-- ═══════════════════════════════════════ PAGE 1: TITLE ═══════════════════════════════════════ -->
+<div class="page title-page">
+  <div class="title-left">
+    <div class="title-left-inner">
+      <div class="t-eyebrow">Burke A. Cunha, MD, MACP · Antibiotic Essentials · Infectious Disease</div>
+      <div class="t-main">The <em>Cunha</em><br>Framework</div>
+      <div class="t-sub">A Six-Step Logic for Antimicrobial<br>Decision-Making</div>
+      <div class="t-divider"></div>
+      <div class="t-desc">
+        <strong>Antibiotic Essentials</strong> — Burke A. Cunha, MD, MACP<br>
+        A systematic, syndrome-based approach to empiric antimicrobial selection:<br>
+        anatomic site · pathogen probability · spectrum matching · PK/PD · host factors · de-escalation
+      </div>
+      <div class="t-badge">6-Step Systematic Approach · Antimicrobial Stewardship</div>
+    </div>
+  </div>
+  <div class="title-right">
+    <div class="step-preview-row sr1">
+      <div class="sp-num">1</div>
+      <div class="sp-body">
+        <div class="sp-q">Syndrome / Site</div>
+        <div class="sp-a">Identify the anatomic focus → drives pathogen probability hierarchy</div>
+      </div>
+    </div>
+    <div class="step-preview-row sr2">
+      <div class="sp-num">2</div>
+      <div class="sp-body">
+        <div class="sp-q">Likely Pathogens</div>
+        <div class="sp-a">Age, immune status, exposure history, healthcare vs. community onset</div>
+      </div>
+    </div>
+    <div class="step-preview-row sr3">
+      <div class="sp-num">3</div>
+      <div class="sp-body">
+        <div class="sp-q">Drug Spectrum</div>
+        <div class="sp-a">Match spectrum to pathogen — avoid over-broad empiric coverage</div>
+      </div>
+    </div>
+    <div class="step-preview-row sr4">
+      <div class="sp-num">4</div>
+      <div class="sp-body">
+        <div class="sp-q">PK / PD Properties</div>
+        <div class="sp-a">Does the drug reach the site at adequate concentrations?</div>
+      </div>
+    </div>
+    <div class="step-preview-row sr5">
+      <div class="sp-num">5</div>
+      <div class="sp-body">
+        <div class="sp-q">The Host</div>
+        <div class="sp-a">Renal/hepatic function, allergies, pregnancy, drug interactions</div>
+      </div>
+    </div>
+    <div class="step-preview-row sr6">
+      <div class="sp-num">6</div>
+      <div class="sp-body">
+        <div class="sp-q">De-escalate at 48–72 h</div>
+        <div class="sp-a">Narrow based on culture data, clinical improvement, procalcitonin</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ PAGE 2: STEP 1 ═══════════════════════════════════════ -->
+<div class="page step-page">
+  <div class="step-sidebar">
+    <div class="sidebar-ghost">1</div>
+    <div class="sb-step-label">Step 01 · Foundation</div>
+    <div class="sb-question">What is the syndrome / site?</div>
+    <div class="sb-divider"></div>
+    <div class="sb-action">
+      Identify the anatomic focus → drives pathogen probability.<br><br>
+      The anatomic compartment is the single most powerful filter for narrowing empiric coverage before any other variable.<br><br>
+      <em>"The site of infection defines the microbial universe."</em>
+    </div>
+    <div class="sb-ref">Cunha · Antibiotic Essentials · Ch. 2<br>IDSA Syndrome-Based Guidelines</div>
+  </div>
+  <div class="step-content">
+    <div class="content-top-bar">
+      <div class="ct-title">Anatomic Site → Pathogen Probability</div>
+      <div class="ct-sub">Clinical syndrome defines the microbial universe before age, immune status, or drug selection</div>
+    </div>
+    <div class="card-grid grid-2">
+      <div class="card">
+        <div class="card-hd">Respiratory</div>
+        <div class="card-body"><ul>
+          <li>CAP: <em>S. pneumoniae</em>, atypicals (<em>Legionella</em>, <em>Mycoplasma</em>), viral</li>
+          <li>HAP/VAP (&gt;48h): <em>P. aeruginosa</em>, MRSA, ESBL GNRs</li>
+          <li>Aspiration: anaerobes, mixed oral flora, <em>S. anginosus</em> group</li>
+          <li>Immunocompromised: <em>Aspergillus</em>, <em>PCP</em>, CMV pneumonitis</li>
+        </ul></div>
+      </div>
+      <div class="card">
+        <div class="card-hd">Urinary Tract</div>
+        <div class="card-body"><ul>
+          <li>Uncomplicated cystitis: <em>E. coli</em> (80–85%), <em>Staph. saprophyticus</em></li>
+          <li>Complicated/CAUTI: <em>Klebsiella</em>, <em>Enterococcus</em>, <em>Pseudomonas</em></li>
+          <li>Urosepsis: GNRs including ESBL producers; blood cx essential</li>
+          <li>Males: always consider <em>Enterococcus</em>, prostatitis (CBP vs. ABP)</li>
+        </ul></div>
+      </div>
+      <div class="card">
+        <div class="card-hd">CNS</div>
+        <div class="card-body"><ul>
+          <li>Community meningitis: <em>S. pneumoniae</em>, <em>N. meningitidis</em></li>
+          <li>Age &gt;50 / immunocomp: add <em>Listeria monocytogenes</em></li>
+          <li>Post-neurosurgical/shunt: <em>S. aureus</em>, <em>S. epidermidis</em>, GNRs</li>
+          <li>Encephalitis: HSV-1 (most common treatable), arboviral, autoimmune</li>
+        </ul></div>
+      </div>
+      <div class="card">
+        <div class="card-hd">Skin, Soft Tissue & Bone</div>
+        <div class="card-body"><ul>
+          <li>Non-purulent cellulitis: GAS (&gt;70%), <em>S. aureus</em></li>
+          <li>Purulent/abscess: CA-MRSA dominant; culture pus if possible</li>
+          <li>Diabetic foot: polymicrobial — GPC, GNR, anaerobes</li>
+          <li>Osteomyelitis: <em>S. aureus</em> (80%), <em>Salmonella</em> (sickle cell)</li>
+        </ul></div>
+      </div>
+    </div>
+    <div class="card-grid grid-1">
+      <div class="card">
+        <div class="card-hd">Syndrome Pattern Recognition — Key Clinical Refiners</div>
+        <div class="card-body">
+          <table class="tbl">
+            <thead><tr><th>Clinical Syndrome</th><th>Key Feature</th><th>Pathogen Shift</th></tr></thead>
+            <tbody>
+              <tr><td>CAP + relative bradycardia</td><td>Temp–pulse dissociation (Faget sign)</td><td>Atypical: <em>Legionella</em>, <em>Mycoplasma</em>, <em>Chlamydophila</em></td></tr>
+              <tr><td>CAP + hyponatremia + mental status change</td><td>Extrapulmonary features</td><td><em>Legionella pneumophila</em> (Pontiac pattern)</td></tr>
+              <tr><td>Endocarditis + embolic phenomena</td><td>Janeway lesions, Roth spots, Osler nodes</td><td>Acute: <em>S. aureus</em>; Subacute: viridans streptococci</td></tr>
+              <tr><td>UTI + perinephric stranding on CT</td><td>Imaging finding</td><td>Complicated UTI / early perinephric abscess — do not use oral therapy</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="pearl">
+      <span class="pearl-lbl">Cunha Principle — Site First</span>
+      The anatomic site is not merely descriptive — it is the primary determinant of the pathogen short-list. Before considering host factors or drug selection, ask: <em>What organisms colonize and infect this compartment under these clinical conditions?</em>
+    </div>
+  </div>
+  <div class="step-footer">
+    <span class="footer-left">Cunha Framework · The Cunha Six-Step Approach to Infectious Disease</span>
+    <span class="footer-right">Step 1 of 6 · Syndrome / Site</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ PAGE 3: STEP 2 ═══════════════════════════════════════ -->
+<div class="page step-page">
+  <div class="step-sidebar">
+    <div class="sidebar-ghost">2</div>
+    <div class="sb-step-label" style="color:var(--blue)">Step 02 · Microbiology</div>
+    <div class="sb-question">What are the likely pathogens?</div>
+    <div class="sb-divider"></div>
+    <div class="sb-action">
+      Age · immune status · exposure history · healthcare vs. community onset<br><br>
+      The pathogen list is probabilistic, not exhaustive. Empiric therapy targets the most likely organisms for this epidemiologic profile.<br><br>
+      <em>Broad coverage is not default — it must be justified by specific risk factors.</em>
+    </div>
+    <div class="sb-ref">Cunha · Antibiotic Essentials<br>IDSA Immunocompromised Host Guidelines</div>
+  </div>
+  <div class="step-content">
+    <div class="content-top-bar">
+      <div class="ct-title">Narrowing the Pathogen Short-List</div>
+      <div class="ct-sub">Four epidemiologic variables that stratify microbial probability — use all four simultaneously</div>
+    </div>
+    <div class="card-grid grid-2">
+      <div class="card c-blue">
+        <div class="card-hd">Age</div>
+        <div class="card-body"><ul>
+          <li>Neonates (&lt;3 mo): GBS, <em>E. coli</em>, <em>Listeria</em>, HSV</li>
+          <li>Children: <em>H. influenzae</em>, <em>S. pneumoniae</em>, RSV, <em>Bordetella</em></li>
+          <li>Young adults: <em>N. meningitidis</em>, atypicals, <em>EBV</em></li>
+          <li>&gt;65 yrs: <em>Listeria</em>, GNRs, atypicals, reactivation TB ↑</li>
+        </ul></div>
+      </div>
+      <div class="card c-blue">
+        <div class="card-hd">Immune Defect</div>
+        <div class="card-body"><ul>
+          <li>CD4 &lt;200: <em>PCP</em>, <em>MAC</em>, <em>Toxoplasma</em>, <em>Cryptococcus</em></li>
+          <li>Neutropenia (&lt;500 ANC): <em>Aspergillus</em>, GNRs, <em>Candida</em>, VGS</li>
+          <li>SOT: <em>CMV</em>, <em>BK virus</em>, <em>Nocardia</em>, PCP</li>
+          <li>Asplenia: encapsulated organisms — rapid, fulminant course</li>
+        </ul></div>
+      </div>
+      <div class="card c-blue">
+        <div class="card-hd">Exposure / Epidemiology</div>
+        <div class="card-body"><ul>
+          <li>Travel to endemic areas: <em>Plasmodium</em>, enteric fever, arboviruses</li>
+          <li>Animal contact: <em>Brucella</em>, <em>Coxiella burnetii</em>, <em>Pasteurella</em></li>
+          <li>Soil/construction/bird droppings: <em>Histoplasma</em>, <em>Blastomyces</em></li>
+          <li>Tick bite: <em>Borrelia</em>, <em>Ehrlichia</em>, <em>Anaplasma</em>, <em>Babesia</em></li>
+        </ul></div>
+      </div>
+      <div class="card c-blue">
+        <div class="card-hd">Healthcare vs. Community</div>
+        <div class="card-body"><ul>
+          <li>Community-onset: susceptible wild-type flora; narrow empiric preferred</li>
+          <li>HCAP risk criteria: prior abx ×90d, ICU &gt;5d, wound care, dialysis</li>
+          <li>HAP/VAP: MDR GNRs (<em>Pseudomonas</em>, ESBL), MRSA coverage</li>
+          <li>Device-related BSI: <em>CoNS</em>, <em>S. aureus</em>, biofilm-forming organisms</li>
+        </ul></div>
+      </div>
+    </div>
+    <div class="card-grid grid-1">
+      <div class="card c-blue">
+        <div class="card-hd">Pathogen Probability by Immune Defect — High-Yield Classification</div>
+        <div class="card-body">
+          <table class="tbl">
+            <thead><tr><th>Immune Defect</th><th>Mechanism</th><th>Dominant Pathogens</th><th>Clinical Clue</th></tr></thead>
+            <tbody>
+              <tr><td>Humoral (B-cell)</td><td>↓ opsonization</td><td>Encapsulated: <em>S. pneumo</em>, <em>H. flu</em>, <em>N. meningitidis</em></td><td>Recurrent sinopulmonary infections</td></tr>
+              <tr><td>Cellular (T-cell)</td><td>↓ intracellular killing</td><td><em>Listeria</em>, <em>Toxoplasma</em>, <em>Cryptococcus</em>, <em>CMV</em>, <em>VZV</em></td><td>HIV/AIDS, transplant, steroids</td></tr>
+              <tr><td>Neutropenia (&lt;500)</td><td>↓ phagocytosis</td><td>GNRs, <em>Aspergillus</em>, <em>Candida</em>, VGS bacteremia</td><td>Fever in chemo patient</td></tr>
+              <tr><td>Complement deficiency</td><td>↓ MAC formation</td><td>Recurrent <em>Neisseria</em> (meningitidis, gonorrhoeae)</td><td>Recurrent meningococcal disease</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="pearl">
+      <span class="pearl-lbl">Cunha Principle — Probabilistic Targeting</span>
+      Empiric therapy is probabilistic — you are treating the most likely pathogen(s) for this patient's epidemiologic profile, not every conceivable organism. Spectrum excess is not safety; it is unnecessary collateral damage and resistance selection pressure.
+    </div>
+  </div>
+  <div class="step-footer">
+    <span class="footer-left">Cunha Framework · The Cunha Six-Step Approach to Infectious Disease</span>
+    <span class="footer-right">Step 2 of 6 · Likely Pathogens</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ PAGE 4: STEP 3 ═══════════════════════════════════════ -->
+<div class="page step-page">
+  <div class="step-sidebar">
+    <div class="sidebar-ghost">3</div>
+    <div class="sb-step-label" style="color:var(--purple)">Step 03 · Pharmacology</div>
+    <div class="sb-question">What is the drug's spectrum?</div>
+    <div class="sb-divider"></div>
+    <div class="sb-action">
+      Match spectrum to pathogen — avoid over-broad empiric coverage.<br><br>
+      The narrowest effective agent is always preferred. Spectrum excess = collateral damage, <em>C. difficile</em> risk, and resistance selection.<br><br>
+      <em>"The best drug is the right drug — not the broadest drug."</em>
+    </div>
+    <div class="sb-ref">Cunha · Antibiotic Essentials<br>ASHP / IDSA Stewardship Core Measures</div>
+  </div>
+  <div class="step-content">
+    <div class="content-top-bar">
+      <div class="ct-title">Spectrum Matching — The Core of Antibiotic Stewardship</div>
+      <div class="ct-sub">Calibrate coverage to the identified pathogen probability — no wider, no narrower</div>
+    </div>
+    <div class="card-grid grid-2">
+      <div class="card c-purple">
+        <div class="card-hd">Narrow-Spectrum — Preferred When</div>
+        <div class="card-body"><ul>
+          <li>Known susceptible organism identified on culture/susceptibility</li>
+          <li>Community-onset infection without MDR risk factors</li>
+          <li>Syndrome with single dominant pathogen (GAS pharyngitis → penicillin)</li>
+          <li>Targeted de-escalation from initial broad empiric therapy</li>
+          <li>Prevention of <em>C. difficile</em>, fungal superinfection, VRE selection</li>
+        </ul></div>
+      </div>
+      <div class="card c-purple">
+        <div class="card-hd">Broad-Spectrum — Justified When</div>
+        <div class="card-body"><ul>
+          <li>Septic shock / hemodynamic instability prior to culture results</li>
+          <li>Known MDR organism or confirmed epidemiologic risk factors</li>
+          <li>Polymicrobial infection (diabetic foot, aspiration pneumonia)</li>
+          <li>Febrile neutropenia per institutional protocol</li>
+          <li>Immunocompromised host with unknown focal source</li>
+        </ul></div>
+      </div>
+    </div>
+    <div class="card-grid grid-1">
+      <div class="card c-purple">
+        <div class="card-hd">Spectrum Hierarchy — Key Drug Classes by Coverage Profile</div>
+        <div class="card-body">
+          <table class="tbl">
+            <thead><tr><th>Agent / Class</th><th>Gram-Positive</th><th>Gram-Negative</th><th>Anaerobes</th><th>Atypicals</th><th>Notes</th></tr></thead>
+            <tbody>
+              <tr><td>Penicillin G / Amoxicillin</td><td>✓✓ streptococci</td><td>Limited</td><td>Oral flora only</td><td>✗</td><td>Drug of choice for GAS, susceptible pneumococcus</td></tr>
+              <tr><td>Ceftriaxone (3rd gen)</td><td>✓ (not MRSA)</td><td>✓✓ broad GNR</td><td>✗</td><td>✗</td><td>CAP, meningitis, enteric fever; no Pseudomonas</td></tr>
+              <tr><td>Pip-tazo</td><td>✓</td><td>✓✓ incl. <em>Pseudomonas</em></td><td>✓✓</td><td>✗</td><td>Add GPC coverage if MRSA risk; IAI, polymicrobial</td></tr>
+              <tr><td>Meropenem / Imipenem</td><td>✓ (not MRSA)</td><td>✓✓✓ incl. ESBL</td><td>✓✓</td><td>✗</td><td>Reserve for ESBL, MDR GNR — stewardship gatekeeping</td></tr>
+              <tr><td>Vancomycin</td><td>✓✓✓ MRSA, VGS</td><td>✗</td><td>✗</td><td>✗</td><td>AUC-guided dosing; inferior to β-lactam for MSSA</td></tr>
+              <tr><td>Doxycycline</td><td>✓ modest</td><td>✓ modest</td><td>Modest</td><td>✓✓✓</td><td>Tick-borne illness, atypical CAP, MRSA (CA)</td></tr>
+              <tr><td>Azithromycin</td><td>Limited (PCN-S only)</td><td>✗</td><td>✗</td><td>✓✓✓</td><td>CAP atypical coverage; NOT monotherapy for hospitalized CAP</td></tr>
+              <tr><td>Metronidazole</td><td>✗</td><td>✗</td><td>✓✓✓</td><td>✗</td><td>C. diff, anaerobic coverage; combine with GNR agent for IAI</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="pearl">
+      <span class="pearl-lbl">Cunha Stewardship Principle</span>
+      Resistance is a consequence of spectrum excess, duration excess, and dose excess — all three must be minimized. The "empiric broad → de-escalate" paradigm only works if de-escalation actually occurs. Failure to narrow at 48–72h is a stewardship failure.
+    </div>
+  </div>
+  <div class="step-footer">
+    <span class="footer-left">Cunha Framework · The Cunha Six-Step Approach to Infectious Disease</span>
+    <span class="footer-right">Step 3 of 6 · Drug Spectrum</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ PAGE 5: STEP 4 ═══════════════════════════════════════ -->
+<div class="page step-page">
+  <div class="step-sidebar">
+    <div class="sidebar-ghost">4</div>
+    <div class="sb-step-label" style="color:var(--pink)">Step 04 · PK / PD</div>
+    <div class="sb-question">What are the PK/PD properties?</div>
+    <div class="sb-divider"></div>
+    <div class="sb-action">
+      Does the drug reach the site at adequate concentrations?<br><br>
+      Spectrum without penetration is treatment failure.<br><br>
+      Time-dependent · Concentration-dependent · AUC-dependent killing — each requires a different optimization strategy.<br><br>
+      <em>Cunha, Antibiotic Essentials, Ch. 8</em>
+    </div>
+    <div class="sb-ref">Cunha · Antibiotic Essentials · Ch. 8<br>ASHP Therapeutic Guidelines</div>
+  </div>
+  <div class="step-content">
+    <div class="content-top-bar">
+      <div class="ct-title">Pharmacokinetics &amp; Pharmacodynamics</div>
+      <div class="ct-sub">Matching drug behavior to anatomic compartment and bactericidal killing mechanism</div>
+    </div>
+    <div class="card-grid grid-2">
+      <div class="card c-pink">
+        <div class="card-hd">PK/PD Killing Targets</div>
+        <div class="card-body"><ul>
+          <li><strong>Time-dependent</strong> (β-lactams): %T&gt;MIC ≥40–50% for bacteriostatic; ≥70% for bactericidal → extended infusion strategy</li>
+          <li><strong>Concentration-dependent</strong> (aminoglycosides, FQs): Cmax/MIC &gt;8–10 → once-daily high-dose preferred</li>
+          <li><strong>AUC/MIC-dependent</strong> (vancomycin): AUC/MIC 400–600 (MRSA); now preferred over trough-only monitoring</li>
+          <li><strong>Extended infusion β-lactams</strong>: pip-tazo 3.375g over 4h, meropenem over 3h for high-MIC organisms</li>
+        </ul></div>
+      </div>
+      <div class="card c-pink">
+        <div class="card-hd">Site Penetration — Key Clinical Points</div>
+        <div class="card-body"><ul>
+          <li><strong>CNS</strong>: ceftriaxone ✓ (inflamed meninges), meropenem ✓, rifampin ✓; vancomycin poor unless inflamed — add rifampin if needed</li>
+          <li><strong>Lung</strong>: FQs, azithromycin — ELF:plasma &gt;10:1; β-lactams adequate at standard doses</li>
+          <li><strong>Bone</strong>: FQs ✓✓, clindamycin ✓✓, rifampin ✓✓; cefazolin adequate for MSSA osteomyelitis</li>
+          <li><strong>Prostate</strong>: FQs and TMP-SMX only — most agents fail due to pH/lipid barrier; β-lactams inadequate</li>
+          <li><strong>Urine</strong>: most agents concentrate in urine; azithromycin does NOT achieve therapeutic urinary levels</li>
+        </ul></div>
+      </div>
+    </div>
+    <div class="card-grid grid-1">
+      <div class="card c-pink">
+        <div class="card-hd">High-Yield PK/PD Clinical Applications</div>
+        <div class="card-body">
+          <table class="tbl">
+            <thead><tr><th>Clinical Scenario</th><th>PK/PD Issue</th><th>Optimal Approach</th></tr></thead>
+            <tbody>
+              <tr><td>VAP — <em>Pseudomonas</em>, MIC 4–8 mg/L</td><td>%T&gt;MIC inadequate at standard infusion</td><td>Extended infusion pip-tazo 3.375g q8h over 4h or meropenem 2g q8h over 3h</td></tr>
+              <tr><td>MSSA bacteremia</td><td>Vancomycin inferior for MSSA (↑ treatment failure, mortality)</td><td>Nafcillin, oxacillin, or cefazolin — β-lactam superiority for MSSA is unambiguous</td></tr>
+              <tr><td>MRSA: AUC/MIC monitoring</td><td>Trough-only monitoring inadequate; AUC 400–600 targets clinical outcomes</td><td>Bayesian PK software-guided dosing; pharmacy-ID collaboration</td></tr>
+              <tr><td>Chronic bacterial prostatitis</td><td>Most abx fail to penetrate prostatic stroma; acidic pH traps weak bases</td><td>Ciprofloxacin or levofloxacin × 4–6 weeks; alternative TMP-SMX × 1–3 months</td></tr>
+              <tr><td>Atypical CAP (<em>Legionella</em>)</td><td>Intracellular organism — β-lactams cannot penetrate macrophages</td><td>FQ or azithromycin; FQ preferred for severe/ICU Legionella</td></tr>
+              <tr><td>Meningitis — PCN-intermediate pneumococcus</td><td>CSF ceftriaxone levels adequate if MIC ≤0.5; vancomycin CSF penetration poor uninflamed</td><td>Ceftriaxone 2g q12h + vancomycin if MIC ≥1; add dexamethasone × 4 days</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="pearl">
+      <span class="pearl-lbl">Cunha Principle — Penetration Equals Efficacy</span>
+      Spectrum without penetration is clinical failure. Choosing the drug with the correct spectrum but inadequate site penetration (e.g., vancomycin for prostatitis, azithromycin as a UTI monotherapy) will result in treatment failure regardless of in vitro susceptibility.
+    </div>
+  </div>
+  <div class="step-footer">
+    <span class="footer-left">Cunha Framework · The Cunha Six-Step Approach to Infectious Disease</span>
+    <span class="footer-right">Step 4 of 6 · PK / PD Properties</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ PAGE 6: STEP 5 ═══════════════════════════════════════ -->
+<div class="page step-page">
+  <div class="step-sidebar">
+    <div class="sidebar-ghost">5</div>
+    <div class="sb-step-label" style="color:var(--teal)">Step 05 · Host Factors</div>
+    <div class="sb-question">What is the host?</div>
+    <div class="sb-divider"></div>
+    <div class="sb-action">
+      Renal function · hepatic function · allergies · pregnancy · drug interactions<br><br>
+      The correct drug for the pathogen may be the wrong drug for the patient.<br><br>
+      <em>Step 5 is where pharmacology meets clinical medicine.</em>
+    </div>
+    <div class="sb-ref">Cunha · Antibiotic Essentials<br>Renal dosing: Micromedex / Lexicomp<br>ACOG Antimicrobial Use in Pregnancy</div>
+  </div>
+  <div class="step-content">
+    <div class="content-top-bar">
+      <div class="ct-title">Host-Specific Prescribing Constraints</div>
+      <div class="ct-sub">Tailoring pharmacotherapy to individual physiology, safety, and drug interactions</div>
+    </div>
+    <div class="card-grid grid-2">
+      <div class="card c-teal">
+        <div class="card-hd">Renal Impairment — Dose Adjustment</div>
+        <div class="card-body"><ul>
+          <li>Vancomycin: AUC-guided dosing (Bayesian PK); trough-only monitoring obsolete</li>
+          <li>Aminoglycosides: avoid CrCl &lt;30 unless life-saving; traditional or Hartford nomogram dosing</li>
+          <li>β-lactams: most require dose/interval adjustment; exceptions = ceftriaxone, nafcillin (hepatic excretion)</li>
+          <li>Nitrofurantoin: <strong>contraindicated</strong> CrCl &lt;30 — no urinary concentration, inadequate levels</li>
+          <li>Daptomycin: q48h if CrCl &lt;30; CPK monitoring</li>
+          <li>FQs (levofloxacin, moxifloxacin): dose reduction in renal failure (levofloxacin); moxifloxacin hepatic — no renal adj.</li>
+        </ul></div>
+      </div>
+      <div class="card c-teal">
+        <div class="card-hd">Hepatic Impairment &amp; Pregnancy</div>
+        <div class="card-body"><ul>
+          <li>Metronidazole: ↓ dose / ↑ interval in Child-Pugh C; neurotoxicity risk</li>
+          <li>Rifampin: potent hepatotoxin; monitor LFTs; avoid if severe baseline disease</li>
+          <li>Clindamycin: hepatically cleared; dose reduction in severe hepatic failure</li>
+          <li style="border-top:0.5pt solid rgba(255,255,255,0.08);padding-top:4pt;margin-top:2pt"><strong>Safe in pregnancy</strong>: penicillins, cephalosporins, azithromycin, clindamycin</li>
+          <li>Avoid pregnancy: FQs (cartilage), tetracyclines (teeth/bone, avoid &gt;15 wks), TMP-SMX (folate 1st tri; kernicterus 3rd tri)</li>
+          <li>Aminoglycosides: fetal VIII-nerve toxicity — use only if life-threatening and no alternative</li>
+        </ul></div>
+      </div>
+    </div>
+    <div class="card-grid grid-1">
+      <div class="card c-teal">
+        <div class="card-hd">Clinically Significant Drug Interactions — High-Yield Table</div>
+        <div class="card-body">
+          <table class="tbl">
+            <thead><tr><th>Antibiotic</th><th>Interacting Drug / Class</th><th>Mechanism</th><th>Clinical Effect &amp; Management</th></tr></thead>
+            <tbody>
+              <tr><td>Fluoroquinolones (PO)</td><td>Antacids, Ca²⁺, Fe²⁺, Zn²⁺, Mg²⁺, sucralfate</td><td>Chelation → ↓ GI absorption by 50–90%</td><td><em>Cunha chelation phenomenon</em>: separate FQ from cations by ≥2h (before) or ≥6h (after)</td></tr>
+              <tr><td>Rifampin</td><td>Warfarin, calcineurin inhibitors, ARVs (PIs, NNRTIs), OCP</td><td>Potent CYP3A4/2C9/2C19 inducer</td><td>↓ levels of interacting drugs; dose warfarin up (↑ INR monitoring); major ID-pharmacy issue in transplant</td></tr>
+              <tr><td>Metronidazole</td><td>Warfarin; ethanol (incl. products)</td><td>CYP2C9 inhibition → ↑ INR; disulfiram-like (aldehyde dehydrogenase block)</td><td>↑ bleeding risk; counsel on alcohol avoidance for 48h post-course</td></tr>
+              <tr><td>Linezolid</td><td>SSRIs, SNRIs, MAOIs, triptans, meperidine</td><td>MAO inhibition → serotonin excess</td><td>Serotonin syndrome risk — hold serotonergic agents ≥14d before or coordinate with pharmacy/ID</td></tr>
+              <tr><td>Daptomycin</td><td>Statins (HMG-CoA reductase inhibitors)</td><td>Additive myopathy / rhabdomyolysis</td><td>Hold statin during daptomycin course; monitor CPK at baseline and weekly</td></tr>
+              <tr><td>Tetracyclines (PO)</td><td>Divalent/trivalent cations, dairy, antacids</td><td>Chelation → ↓ absorption (same mechanism as FQ)</td><td>Separate by ≥2h before or ≥4–6h after; avoid dairy within 1–2h of dose</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="step-footer">
+    <span class="footer-left">Cunha Framework · The Cunha Six-Step Approach to Infectious Disease</span>
+    <span class="footer-right">Step 5 of 6 · The Host</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ PAGE 7: STEP 6 ═══════════════════════════════════════ -->
+<div class="page step-page">
+  <div class="step-sidebar">
+    <div class="sidebar-ghost">6</div>
+    <div class="sb-step-label" style="color:var(--yellow)">Step 06 · Stewardship</div>
+    <div class="sb-question">De-escalate at 48–72 h</div>
+    <div class="sb-divider"></div>
+    <div class="sb-action">
+      Narrow based on culture data · clinical improvement · procalcitonin trend<br><br>
+      Empiric broad coverage is a bridge — not a destination.<br><br>
+      <em>Failing to de-escalate is itself a stewardship failure.</em>
+    </div>
+    <div class="sb-ref">Cunha · Antibiotic Essentials<br>IDSA / SHEA AMS Guidelines 2023<br>PRORATA Trial; NEJM PCT Meta-Analysis 2019</div>
+  </div>
+  <div class="step-content">
+    <div class="content-top-bar">
+      <div class="ct-title">De-escalation Strategy at 48–72 Hours</div>
+      <div class="ct-sub">Culture-guided narrowing + biomarker-guided duration + clinical-guided IV→PO conversion</div>
+    </div>
+    <div class="card-grid grid-2">
+      <div class="card c-yellow">
+        <div class="card-hd">Culture-Guided Narrowing</div>
+        <div class="card-body"><ul>
+          <li>Identify organism + susceptibilities → target monotherapy where possible</li>
+          <li>MSSA: de-escalate from vancomycin → nafcillin, oxacillin, or cefazolin (superior outcomes)</li>
+          <li>Susceptible <em>E. coli</em> urosepsis: meropenem → ceftriaxone or ciprofloxacin (if FQ-susceptible)</li>
+          <li>Negative cultures + clinical improvement: reassess non-infectious etiology; consider stopping abx</li>
+          <li>Double antipseudomonal coverage: narrow to monotherapy once susceptibilities confirmed</li>
+        </ul></div>
+      </div>
+      <div class="card c-yellow">
+        <div class="card-hd">Procalcitonin-Guided Duration</div>
+        <div class="card-body"><ul>
+          <li>PCT &lt;0.1 ng/mL: bacterial infection very unlikely → strongly consider discontinuation</li>
+          <li>PCT &lt;0.25 ng/mL with ≥80% decrease from peak: supports discontinuation in CAP, sepsis</li>
+          <li>Serial PCT outperforms fixed-duration protocols: ↓ antibiotic-days, non-inferior outcomes (PRORATA trial; NEJM 2019 meta-analysis)</li>
+          <li>Limitations: PCT elevated in non-infective states — post-cardiac surgery, severe trauma, cardiogenic shock, ARDS</li>
+          <li>PCT less reliable in fungal infection, atypicals, localized infections (endocarditis, abscess)</li>
+        </ul></div>
+      </div>
+      <div class="card c-yellow">
+        <div class="card-hd">IV-to-Oral Switch Criteria</div>
+        <div class="card-body"><ul>
+          <li>Clinical improvement documented: afebrile ≥24h, hemodynamically stable, improving inflammatory markers</li>
+          <li>Functioning GI tract — tolerating PO, no malabsorption, no ileus</li>
+          <li>High bioavailability oral agents: FQs (~100%), linezolid (100%), metronidazole (&gt;95%), TMP-SMX (90–100%), doxycycline (93%)</li>
+          <li>Exceptions requiring prolonged IV: <em>S. aureus</em> bacteremia (minimum 14d IV for MSSA/MRSA), IE, CNS infections, endovascular source</li>
+        </ul></div>
+      </div>
+      <div class="card c-yellow">
+        <div class="card-hd">Duration Principles</div>
+        <div class="card-body"><ul>
+          <li>Duration = clinical response, not calendar — shorter validated courses superior in most syndromes</li>
+          <li>CAP: 5 days if clinical stability achieved by day 3 (IDSA/ATS 2019); PCT-guided often permits ≤5d</li>
+          <li>UTI: uncomplicated 3d (TMP-SMX) or 5d (nitrofurantoin); complicated 7–14d per response</li>
+          <li>Cellulitis: minimum 5d; extend only if no improvement at 48–72h — reassess diagnosis</li>
+          <li>Sepsis (non-bacteremic, source controlled): 7d total if PCT-guided; 14d if bacteremic without IE</li>
+        </ul></div>
+      </div>
+    </div>
+    <div class="card-grid grid-1">
+      <div class="card c-yellow">
+        <div class="card-hd">De-escalation Decision Matrix</div>
+        <div class="card-body">
+          <table class="tbl">
+            <thead><tr><th>Situation at 48–72h</th><th>Recommended Action</th><th>Evidence / Guideline</th></tr></thead>
+            <tbody>
+              <tr><td>Positive cx, susceptible isolate identified</td><td>Target monotherapy; discontinue unnecessary agents (e.g., anti-anaerobe coverage if not indicated)</td><td>IDSA guidelines; Cunha — monotherapy superiority for susceptible organisms</td></tr>
+              <tr><td>Negative cultures, clinical improvement</td><td>Shorten course; consider stopping; evaluate for viral or non-infective etiology</td><td>PRORATA trial; PCT-guided algorithms</td></tr>
+              <tr><td>MRSA coverage added empirically, not confirmed</td><td>Discontinue vancomycin / daptomycin if cx negative and low pre-test probability</td><td>IDSA MRSA Guidelines 2011; ASHP AMS core measure</td></tr>
+              <tr><td>CAP improving at 48h, PCT ↓ ≥80%</td><td>5-day course appropriate; discontinue if PCT &lt;0.25 ng/mL</td><td>NEJM 2019 PCT meta-analysis; IDSA/ATS CAP Guidelines 2019</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="step-footer">
+    <span class="footer-left">Cunha Framework · The Cunha Six-Step Approach to Infectious Disease</span>
+    <span class="footer-right">Step 6 of 6 · De-escalation</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ PAGE 8: SUMMARY ═══════════════════════════════════════ -->
+<div class="page summary-page">
+  <div class="sum-header">
+    <div class="sum-eyebrow">Cunha Framework · Complete Six-Step Reference · Antibiotic Essentials</div>
+    <div class="sum-title">The Cunha Six-Step at a Glance</div>
+  </div>
+  <div class="sum-grid">
+    <div class="sum-card">
+      <div class="sum-ghost">1</div>
+      <div class="sum-lbl">Step 1 · Syndrome / Site</div>
+      <div class="sum-q">What is the anatomic focus?</div>
+      <div class="sum-body">The anatomic site is the primary filter for pathogen probability. Community vs. hospital onset further stratifies the hierarchy. Syndrome pattern recognition (temp-pulse dissociation, embolic phenomena) refines pathogen targeting before cultures return.</div>
+      <div class="sum-tags"><span class="tag">Lung</span><span class="tag">CNS</span><span class="tag">UTI</span><span class="tag">SSTI</span><span class="tag">Bone</span></div>
+    </div>
+    <div class="sum-card s2">
+      <div class="sum-ghost">2</div>
+      <div class="sum-lbl">Step 2 · Likely Pathogens</div>
+      <div class="sum-q">Who are the probable organisms?</div>
+      <div class="sum-body">Age, immune defect type (humoral/cellular/neutropenic), epidemiologic exposure history, and healthcare vs. community onset all stratify pathogen probability. Empiric coverage is probabilistic — target likely organisms, not every conceivable one.</div>
+      <div class="sum-tags"><span class="tag blue">Immune status</span><span class="tag blue">Exposure</span><span class="tag blue">Age</span><span class="tag blue">HC vs CA</span></div>
+    </div>
+    <div class="sum-card s3">
+      <div class="sum-ghost">3</div>
+      <div class="sum-lbl">Step 3 · Drug Spectrum</div>
+      <div class="sum-q">Does the spectrum match — no more?</div>
+      <div class="sum-body">Calibrate to the narrowest effective agent. Spectrum excess drives C. difficile, VRE, fungal superinfection, and resistance. Broad empiric coverage must be explicitly justified — it is never the default.</div>
+      <div class="sum-tags"><span class="tag purple">Match spectrum</span><span class="tag purple">Avoid excess</span><span class="tag purple">Stewardship</span></div>
+    </div>
+    <div class="sum-card s4">
+      <div class="sum-ghost">4</div>
+      <div class="sum-lbl">Step 4 · PK / PD</div>
+      <div class="sum-q">Does the drug reach the site at therapeutic levels?</div>
+      <div class="sum-body">Spectrum without site penetration is treatment failure. Match killing mechanism (T&gt;MIC, Cmax/MIC, AUC/MIC) to dosing strategy. Intracellular organisms require intracellularly active agents. Prostate and CNS penetration are especially limiting.</div>
+      <div class="sum-tags"><span class="tag pink">T&gt;MIC</span><span class="tag pink">Cmax/MIC</span><span class="tag pink">AUC/MIC</span><span class="tag pink">Site penetration</span></div>
+    </div>
+    <div class="sum-card s5">
+      <div class="sum-ghost">5</div>
+      <div class="sum-lbl">Step 5 · The Host</div>
+      <div class="sum-q">Can this patient receive it safely?</div>
+      <div class="sum-body">Renal/hepatic function, allergy status, pregnancy, and drug interactions may all contraindicate the otherwise optimal agent. The Cunha chelation phenomenon (FQs/tetracyclines + divalent cations) is a high-yield, frequently missed interaction.</div>
+      <div class="sum-tags"><span class="tag teal">Renal adj.</span><span class="tag teal">Allergy</span><span class="tag teal">DDI</span><span class="tag teal">Pregnancy</span></div>
+    </div>
+    <div class="sum-card s6">
+      <div class="sum-ghost">6</div>
+      <div class="sum-lbl">Step 6 · De-escalate 48–72h</div>
+      <div class="sum-q">What do cultures and response tell us?</div>
+      <div class="sum-body">Narrow based on susceptibility data, PCT trend (≥80% ↓ or &lt;0.25 ng/mL), and clinical improvement. IV→PO when GI intact and high-bioavailability oral agent exists. Duration is driven by clinical response — not arbitrary fixed courses.</div>
+      <div class="sum-tags"><span class="tag yellow">PCT-guided</span><span class="tag yellow">Culture-driven</span><span class="tag yellow">IV→PO</span><span class="tag yellow">Narrow</span></div>
+    </div>
+  </div>
+  <div class="sum-footer">
+    Burke A. Cunha, MD, MACP · Antibiotic Essentials · IDSA/SHEA AMS Guidelines 2023 · PRORATA Trial · NEJM PCT Meta-Analysis 2019 · ACOG Antimicrobial Guidance · ASHP Stewardship Core Measures
+  </div>
+</div>
+
+</body>
+</html>
